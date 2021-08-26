@@ -1,0 +1,9 @@
+{
+  "name": "Control Panel API",
+  "version": "0.0.1",
+  "description": "All API full documentation",
+  "header": {
+    "title": "Control Panel",
+    "filename": "header.md"
+  }
+}

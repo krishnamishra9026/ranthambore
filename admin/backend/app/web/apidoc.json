@@ -1,0 +1,9 @@
+{
+  "name": "Express Web API",
+  "version": "0.1.0",
+  "description": "Express Web API full documentation",
+  "header": {
+    "title": "Express Web API",
+    "filename": "header.md"
+  }
+}

@@ -1,0 +1,142 @@
+<header>
+  <div class="inner-page-header">
+    <div class="inner-page-header-in">
+      <div class="row mx-0">
+        <div class="col-lg-6">
+          <button class="btn-clear btn-menu" (click)="toggleMenu()">
+            <i class="ic-menu"></i>
+          </button>
+          <!-- <div class="form-group search-group">
+            <input type="text" class="form-control" placeholder="search..." />
+            <i class="ic-search"></i>
+          </div> -->
+        </div>
+        <div class="col-lg-6 mx-auto">
+          <div class="float-right">
+            <!-- <div class="float-left mr-5">
+              <button class=" btn-outline" [routerLink]="['/main/student/new-request']">
+                <i class="ic-plus"></i>New Request
+              </button>
+            </div> -->
+            <div class="float-left mx-2 notification-cnt">
+              <button
+                class="btn-clear btn-notification"
+                [ngClass]="{ active: isOpen }"
+                (click)="isOpen = !isOpen"
+              >
+                <i class="ic-notification new-notify"> </i>
+                <span class="notification-active"></span>
+              </button>
+              <div class="notification-list" [ngClass]="{ open: isOpen }" (clickOutside)="closeNotifications($event)">
+                <div class="card">
+                  <div class="card-header">
+                    <span class="title-text">Notifications</span>
+                  </div>
+                  <div class="card-content">
+                    <perfect-scrollbar class="notification-listing">
+                      <ul>
+                       
+                      </ul>
+                      <div
+                      class="v-mid-cnt"
+                      *ngIf="
+                        !userInfo.notifications || !userInfo.notifications.length
+                      "
+                    >
+                      <div class="v-mid-cnt-inner">
+                        <div class="img-cnt">
+                          <img src="assets/images/notification-off.png" />
+                        </div>
+                        <p>No Notification found!</p>
+                      </div>
+                    </div>
+                    </perfect-scrollbar>
+                  </div>
+                  <div
+                    class="card-footer"
+                    *ngIf="userInfo.notifications && userInfo.notifications.length"
+                  >
+                    <button
+                      class="btn-clear btn-view-all"
+                    >
+                      View All Notification
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="float-left">
+                <div
+                  class="btn-group profile-dropdown"
+                  dropdown
+                  placement="bottom right"
+                >
+                  <button
+                    id="button-basic"
+                    dropdownToggle
+                    type="button"
+                    class="btn-clear dropdown-toggle"
+                    aria-controls="dropdown-basic"
+                  >
+                    <i class="user-pic">
+                      <img
+                        [src]="
+                          userInfo.logo
+                            ? userInfo.logo
+                            : 'assets/images/edit-profile-pic.png'
+                        "
+                      />
+                    </i>
+                    {{ userInfo.userName }} <span class="arrow-down"></span>
+                  </button>
+                  <ul
+                    id="dropdown-basic"
+                    *dropdownMenu
+                    class="dropdown-menu"
+                    role="menu"
+                    aria-labelledby="button-basic"
+                    placement="bottom right"
+                  >
+                  <li role="menuitem">
+                      <div class="user-profile-info">
+                        <div class="profile-inner">
+                        <div class="profile-thumb">
+                            <img [src]="userInfo.logo ? userInfo.logo : 'assets/images/edit-profile-pic.png'" />
+                        </div>
+                        <div class="inner-profile-det">
+                            <h2 [innerHTML]="userInfo.username"></h2>
+                            <p [innerHTML]="userInfo.email"></p>
+                        </div>
+                      </div>
+                      </div>
+                  </li> 
+                  <li role="menuitem">
+                      <a class="dropdown-item cursor-pointer" (click)="editProfile()"
+                        >
+                        <i class="ic-male"></i>
+                        Edit Profile</a
+                      >
+                    </li>
+                    <li role="menuitem">
+                      <a class="dropdown-item cursor-pointer" (click)="changePassword()"
+                        >
+                        <i class="ic-pwd"></i>
+                        Change Password</a
+                      >
+                    </li>
+                    <li role="menuitem">
+                      <a
+                        class="btn-cmn btn-logout"
+                        (click)="logout()"
+                        >Logout</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

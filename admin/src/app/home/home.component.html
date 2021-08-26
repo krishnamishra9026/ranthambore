@@ -1,0 +1,63 @@
+<!-- <site-header></site-header> -->
+<div class="main-wrapper">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+
+    </div>
+  </div>
+    <div class="section right col-lg-12">
+        <button class="btn-cmn btn-green login-btn-mrgn" (click)="login()" >Login</button>
+    </div>
+  </div>
+
+<!-- <div class="container-fluid px-0">
+    <div class="left-view-image">
+      <span>Welcome to!<br /> DX Ecommerce Panel</span>
+    </div>
+    <div class="right-content">
+      <div class="right-content-inner mt-none">
+        <div class="row mx-0">
+          <div class="col-lg-8 text-center">
+            <h1>Let's Login</h1>
+            <div class="signup-form-cnt">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group has-float-label">
+                        <input type="text" formControlName="email" class="form-control" placeholder=" "  />
+                        <label for="email">Email</label>
+                        <div
+                        *ngIf="
+                          submitted && f.email.errors
+                        "
+                      >
+                        <div
+                          class="validation-error"
+                          *ngIf="f.email.errors.required"
+                        >
+                          Email is required
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group has-float-label">
+                        
+                        <input type="password" formControlName="password" class="form-control" placeholder=" " autocomplete="" />
+                        <label for="password">Password</label>
+                        <div *ngIf="submitted && f.password.errors">
+                                <div
+                                  class="validation-error"
+                                  *ngIf="f.password.errors.required"
+                                >
+                                  Password is required
+                                </div>
+                              </div>
+                    </div>
+                    <div class="form-group">
+                        <button [disabled]="loading" class="btn-cmn btn-green btn-full-width">Login</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->

@@ -1,0 +1,189 @@
+<!-- <div class="row">
+  <div class="col-lg-12 col-md-12 mb-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-list"></i> Pages
+        <div class="pull-right px-3">
+          <button
+            class="btn btn-info cursor-pointor mr-2"
+            type="button"
+            (click)="refreshList()"
+            tooltip="Refresh"
+          >
+            <i class="fa fa-refresh"></i>
+          </button>
+          <button
+            class="btn btn-primary cursor-pointor mr-2"
+            type="button"
+            (click)="changeStatus('Active')"
+            tooltip="Activate"
+            *ngIf="canUpdate"
+          >
+            <i class="fa fa-unlock-alt"></i>
+          </button>
+          <button
+            class="btn btn-gray cursor-pointor mr-2"
+            type="button"
+            (click)="changeStatus('In Active')"
+            tooltip="In Activate"
+            *ngIf="canUpdate"
+          >
+            <i class="fa fa-lock"></i>
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="input-group mb-2">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Serach by Name,Code .."
+              (keyup)="updateFilter($event)"
+              value=""
+              [formControl]="searchtxtControl"
+            />
+            <span class="input-group-append" (click)="getPages()">
+              <span class="input-group-text"><i class="fa fa-search"></i></span>
+            </span>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
+
+<div class="container">
+    <div class="row title-row">
+      <div class="col-lg-12"><div class="inner-page-title header">Pages</div></div>
+    </div>
+    <div class="row filter-row">
+      <div class="col-md-9">
+        <div class="input-group">
+          <input class="form-control" type="text" placeholder="Serach by Name..."  value=""
+            [formControl]="searchtxtControl" />
+        </div>
+      </div>
+      <div class="col-md-3">
+          <div class="pull-right">
+            <button  *ngIf="canUpdate" class="btn btn-outline-gray cursor-pointor mr-1" type="button" (click)="changeStatus('Active',null)" tooltip="Activate"
+              [disabled]="!this.providerList.length">
+              <i class="fa fa-unlock-alt"></i>
+            </button>
+            <button  *ngIf="canUpdate" class="btn btn-outline-gray cursor-pointor mr-1" type="button" (click)="changeStatus('In Active',null)"
+            tooltip="In Activate" [disabled]="!this.providerList.length">
+              <i class="fa fa-lock"></i>
+            </button>
+            <button class="btn btn-outline-gray cursor-pointor mr-1" type="button" (click)="refreshList()" tooltip="Refresh">
+              <i class="fa fa-refresh"></i>
+            </button>
+          </div>
+        </div>
+    </div>
+     <!-- Listing start -->
+     <div class="row mx-0">
+        <div class="col-lg-12 col-md-12 mb-12">
+            <ngx-datatable *ngIf="providerList && providerList.length > 0"
+            #table
+            class="material"
+            [headerHeight]="40"
+            [limit]="10"
+            [columnMode]="'flex'"
+            [footerHeight]="50"
+            [rowHeight]="'auto'"
+            [rows]="providerList"
+            [selected]="selected"
+            [selectionType]="'checkbox'"
+            (select)="onSelect($event)"
+            [count]="pageInfo.count"
+            [offset]="pageInfo.page"
+            [limit]="pageInfo.pageSize"
+            (page)="setPage($event)"
+            (sort)="onSort($event)"
+          >
+            <ngx-datatable-column
+              [width]="30"
+              [flexGrow]="1"
+              [sortable]="false"
+              [canAutoResize]="false"
+              [draggable]="true"
+              [resizeable]="false"
+              [headerCheckboxable]="true"
+              [checkboxable]="true"
+            >
+            </ngx-datatable-column>
+            <ngx-datatable-column
+              name="Name"
+              [flexGrow]="3"
+              cellClass="text-truncate"
+            >
+              <ng-template
+                ngx-datatable-cell-template
+                let-value="value"
+                let-row="row"
+              >
+                <span *ngIf="canUpdate">
+                  <a  [tooltip]="value">{{
+                    value
+                  }}</a>
+                </span>
+                <span *ngIf="!canUpdate" [tooltip]="value">{{ value }}</span>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column
+              name="Code"
+              [flexGrow]="3"
+              cellClass="text-truncate"
+            >
+              <ng-template
+                ngx-datatable-cell-template
+                let-row="row"
+                let-value="value"
+              >
+                <span [tooltip]="value"> {{ value }} </span>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column
+              name="Url"
+              [flexGrow]="3"
+              cellClass="text-truncate"
+            >
+              <ng-template ngx-datatable-cell-template let-value="value">
+                <span [tooltip]="value"> {{ value }} </span>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Status" prop="active" [flexGrow]="1">
+              <ng-template ngx-datatable-cell-template let-value="value">
+                <span class="badge badge-success" *ngIf="value">Active</span>
+                <span class="badge badge-gray" *ngIf="!value">In Active</span>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name=" " [width]="25" [flexGrow]="2">
+                <ng-template ngx-datatable-cell-template let-row="row">
+                    <div class="edit-icon-sec">
+                        <a (click)="update(row.id)" tooltip="Edit" *ngIf="canUpdate"
+                          ><i class="fa fa-edit fa-lg"></i></a>
+        
+                        <a
+                          (click)="changeStatus('Active',row.id)" *ngIf="canUpdate"
+                          tooltip="Activate"
+                          ><i class="fa fa-unlock-alt fa-lg"></i></a>
+        
+                        <a
+                        tooltip="In Activate" *ngIf="canUpdate"
+                        (click)="changeStatus('In Active',row.id)"
+                        ><i class="fa fa-lock fa-lg"></i></a>
+                       
+                      </div>
+                </ng-template>
+              </ngx-datatable-column>
+          </ngx-datatable>
+          </div>
+
+          <div class="no-data-found" *ngIf="!providerList || !providerList.length">
+              <div class="no-data-found-sec"><i><img alt="" src="assets/images/norecord-img.png"></i><span>No data for listing</span></div>
+            </div>
+     </div>
+
+</div>  

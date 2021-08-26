@@ -1,0 +1,13 @@
+{
+	"restartable": "rs",
+	"ignore": [".git", "node_modules/**/node_modules", "tasks/*", "docs/*"],
+	"verbose": true,
+	"execMap": {
+		"js": "node"
+	},
+	"env": {
+		"NODE_ENV": "development",
+		"DEBUG": "express:api"
+	},
+	"ext": "js json"
+}

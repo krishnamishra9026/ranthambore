@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row title-row">
+      <div class="col-lg-12"><div class="inner-page-title header">Capabilities</div></div>
+    </div>
+  <div class="row filter-row">
+    <div class="col-md-9">
+      <div class="input-group">
+        <input class="form-control" type="text" placeholder="Serach by Name..."  value=""
+          [formControl]="searchtxtControl" />
+      </div>
+    </div>
+    <div class="col-md-3">
+        <div class="pull-right">
+          <button  *ngIf="canAdd" class="btn btn-primary cursor-pointor mr-1" type="button" (click)="create()" tooltip="Add">
+            <i class="fa fa-plus"></i>
+          </button>
+          <button *ngIf="canDelete" class="btn btn-outline-gray cursor-pointor mr-1" (click)="delete()" type="button" tooltip="Delete"
+            [disabled]="!this.records.length">
+            <i class="fa fa-trash-o"></i>
+          </button>
+          <button class="btn btn-outline-gray cursor-pointor mr-1" type="button" (click)="refreshList()" tooltip="Refresh">
+            <i class="fa fa-refresh"></i>
+          </button>
+        </div>
+      </div>
+  </div>
+
+  <div class="row mx-0">
+    <div class="col-lg-12 col-md-12 mb-12">
+      <ngx-datatable  *ngIf="records && records.length > 0" #table class="material" [headerHeight]="40" [columnMode]="'force'" [footerHeight]="50"
+      [rowHeight]="'auto'" [rows]="records" [selected]="selected" [selectionType]="'checkbox'" (select)="onSelect($event)"
+      [externalPaging]="true" [count]="pageInfo.count" [offset]="pageInfo.page" [limit]="pageInfo.pageSize" (page)="setPage($event)"
+      (sort)="onSort($event)">
+      <ngx-datatable-column [width]="30" [sortable]="false" [canAutoResize]="false" [draggable]="true" [resizeable]="false"
+        [headerCheckboxable]="true" [checkboxable]="true">
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Name">
+        <ng-template ngx-datatable-cell-template let-value="value">
+          {{ value }}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Module">
+        <ng-template ngx-datatable-cell-template let-row="row">
+          {{ row.module }}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Slug">
+        <ng-template ngx-datatable-cell-template let-row="row">
+          {{ row.slug }}
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+          <div class="no-data-found" *ngIf="!records || !records.length">
+            <div class="no-data-found-sec"><i><img alt="" src="assets/images/norecord-img.png"></i><span>No data found</span></div>
+          </div>
+    </div>
+  </div>
+</div>

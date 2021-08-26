@@ -1,0 +1,2 @@
+yarn.lock -diff
+*.js text eol=lf

@@ -1,0 +1,95 @@
+@import '../../../assets/theme/variables';
+
+.studnt-dashbrd-rgt-sec.product-dashbrd-rgt-sec {
+	.schl-dashbrd-upload-pic {
+		.user-profile-pic {
+			float: none;
+			margin: 0 auto 30px;
+		}
+	}
+
+	.home-reg-form {
+		.benefy-cmn-frm-sec {
+			.form-group {
+				width: 100%;
+			}
+
+			.save-btm-btn {
+				margin-top: 25px;
+				text-align: center;
+
+				.btn-cmn {
+					width: 165px;
+					margin: 0 auto;
+					display: inline-block;
+				}
+			}
+		}
+	}
+}
+
+.title-row {
+	margin: 0 15px;
+	padding: 30px 0 25px;
+}
+
+.custom-modal {
+	.modal-header {
+		display: inline-block;
+		width: 100%;
+
+		.btn-close-popup {
+			float: right;
+		}
+	}
+
+	.title-row {
+		border: none;
+		margin: 0;
+		padding: 30px 15px 25px;
+		float: left;
+	}
+}
+
+// image uploader
+.m-img-upload-btn {
+	position: absolute;
+	padding: 0;
+	width: calc(100% - 30px);
+	height: 38px;
+	opacity: 0;
+}
+.images-container {
+	width: 100%;
+	top: 15px;
+	border: 2px dashed #ccc;
+	background: rgb(241, 241, 241);
+	min-height: 293px;
+	padding: 10px;
+	display: block;
+	.m-image-wrapper {
+		position: relative;
+		display: inline-block;
+		margin: 10px;
+		width: 120px;
+		height: 120px;
+		.m-delete-img {
+			position: absolute;
+			top: -11px;
+			right: -10px;
+			border: 2px solid #000;
+			color: #000;
+			padding: 3px 5px;
+			border-radius: 50%;
+			visibility: hidden;
+			cursor: pointer;
+		}
+		&:hover .m-delete-img {
+			visibility: visible;
+		}
+		img {
+			width: 120px;
+			height: 120px;
+		}
+	}
+}

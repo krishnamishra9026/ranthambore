@@ -1,0 +1,110 @@
+<div class="container">
+    <div class="row title-row">
+      <div class="col-lg-12"><div class="inner-page-title header">Email</div></div>
+    </div>
+    <div class="row filter-row">
+      <div class="col-md-9">
+        <div class="input-group">
+          <input class="form-control" type="text" placeholder="Serach by Name..."  value=""
+            [formControl]="searchtxtControl" />
+        </div>
+      </div>
+      <!-- <div class="col-md-3">
+          <div class="pull-right">
+            <button class="btn btn-outline-gray cursor-pointor mr-1" type="button" (click)="refreshList()" tooltip="Refresh">
+              <i class="fa fa-refresh"></i>
+            </button>
+          </div>
+        </div> -->
+    </div>
+
+    <div class="row mx-0">
+      <div class="col-lg-12 col-md-12 mb-12">
+        <ngx-datatable
+        #table
+        *ngIf="emailList && emailList.length > 0"
+        class="material"
+        [headerHeight]="40"
+        [columnMode]="'flex'"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [rows]="emailList"
+        [externalPaging]="true"
+        [count]="pageInfo.count"
+        [offset]="pageInfo.page"
+        [limit]="pageInfo.pageSize"
+        (page)="setPage($event)"
+        (sort)="onSort($event)"
+      >
+        <ngx-datatable-column
+          name="Title"
+          [flexGrow]="3"
+          cellClass="text-truncate"
+        >
+          <ng-template
+            ngx-datatable-cell-template
+            let-value="value"
+            let-row="row"
+          >
+            <span *ngIf="canUpdate"
+              ><a  [tooltip]="value">{{
+                value
+              }}</a></span
+            >
+            <span *ngIf="!canUpdate" [tooltip]="value">{{ value }}</span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="Subject"
+          [flexGrow]="3"
+          cellClass="text-truncate"
+        >
+          <ng-template
+            ngx-datatable-cell-template
+            let-row="row"
+            let-value="value"
+          >
+            <span [tooltip]="value"> {{ value }} </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column
+          name="Code"
+          [flexGrow]="3"
+          cellClass="text-truncate"
+        >
+          <ng-template ngx-datatable-cell-template let-value="value">
+            <span> {{ value }} </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="FromName" [flexGrow]="2" cellClass="text-truncate">
+            <ng-template ngx-datatable-cell-template let-value="value">
+              <span > {{ value }} </span>
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="FromEmail" [flexGrow]="3" cellClass="text-truncate">
+            <ng-template ngx-datatable-cell-template let-value="value">
+              <span > {{ value }} </span>
+            </ng-template>
+          </ngx-datatable-column>
+    
+         <!-- taaaa -->
+
+         <ngx-datatable-column name=" " [flexGrow]="1">
+            <ng-template ngx-datatable-cell-template let-row="row">
+              <div class="edit-icon-sec">
+                <a (click)="update(row.id)" tooltip="Edit" 
+                  ><i class="fa fa-edit fa-lg"></i></a>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+
+          <!-- aa -->
+      </ngx-datatable>
+          <div class="no-data-found" *ngIf="!emailList || !emailList.length">
+              <div class="no-data-found-sec"><i><img alt="" src="assets/images/norecord-img.png"></i><span>No data for listing</span></div>
+            </div>
+      </div>
+    </div>
+  </div>
+  

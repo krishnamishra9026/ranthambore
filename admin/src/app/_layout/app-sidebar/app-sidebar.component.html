@@ -1,0 +1,199 @@
+<div class="left-sidebar" [ngClass]="{ mini: menu.isMini }">
+  <div class="logo-cnt">
+    <div class="logo-cnt-inner"></div>
+  </div>
+
+  <div class="left-menu-cnt">
+    <perfect-scrollbar>
+      
+
+      <!-- Admin Menu start -->
+      <ul>
+        <li>
+          <div
+            class="inner-li"
+            [routerLink]="['/main/dashboard']"
+            routerLinkActive="active"
+            [tooltip]="menu.isMini ? 'Sponsors' : ''"
+            placement="right"
+            container="body"
+          >
+          <i class="fa fa-tachometer"></i><span>Dashboard</span>
+          </div>
+        </li>
+        <li>
+          <div
+            class="inner-li"
+            [routerLink]="['/main/customers']"
+            routerLinkActive="active"
+            [tooltip]="menu.isMini ? 'Customer' : ''"
+            placement="right"
+            container="body"
+          >
+          <i class="fa fa-th-list"></i><span>Customers</span>
+          </div>
+        </li>
+
+        <li>
+          <div
+            class="inner-li"
+            [routerLink]="['/main/cambal-bookings']"
+            routerLinkActive="active"
+            [tooltip]="menu.isMini ? 'Cambal Bookings' : ''"
+            placement="right"
+            container="body"
+          >
+          <i class="fa fa-th-list"></i><span>Cambal Bookings</span>
+          </div>
+        </li>
+
+
+        <li>
+          <div
+            class="inner-li"
+            [routerLink]="['/main/events']"
+            routerLinkActive="active"
+            [tooltip]="menu.isMini ? 'Events' : ''"
+            placement="right"
+            container="body"
+          >
+          <i class="fa fa-th-list"></i><span>Events</span>
+          </div>
+        </li>
+        <li>
+          <div
+            class="inner-li"
+            [routerLink]="['/main/booking_prices']"
+            routerLinkActive="active"
+            [tooltip]="menu.isMini ? 'Booking Price' : ''"
+            placement="right"
+            container="body"
+          >
+          <i class="fa fa-th-list"></i><span>Booking Prices</span>
+          </div>
+        </li>
+        <li>
+          <div
+            class="inner-li"
+            [routerLink]="['/main/chambal_prices']"
+            routerLinkActive="active"
+            [tooltip]="menu.isMini ? 'Chambal Price' : ''"
+            placement="right"
+            container="body"
+          >
+          <i class="fa fa-th-list"></i><span>Chambal Prices</span>
+          </div>
+        </li>
+        <!-- <li>
+          <div
+            class="inner-li"
+            [routerLink]="['/main/categories']"
+            routerLinkActive="active"
+            [tooltip]="menu.isMini ? 'Category' : ''"
+            placement="right"
+            container="body"
+          >
+          <i class="fa fa-th-list"></i><span>Category</span>
+          </div>
+        </li>
+        <li>
+          <div
+            class="inner-li"
+            [routerLink]="['/main/brand']"
+            routerLinkActive="active"
+            [tooltip]="menu.isMini ? 'Brand' : ''"
+            placement="right"
+            container="body"
+          >
+          <i class="fa fa-th-list"></i><span>Brand</span>
+          </div>
+        </li>
+        <li>
+          <div
+            class="inner-li"
+            [routerLink]="['/main/products']"
+            routerLinkActive="active"
+            [tooltip]="menu.isMini ? 'Products' : ''"
+            placement="right"
+            container="body"
+          >
+          <i class="fa fa-th-list"></i><span>Product</span>
+          </div>
+        </li>
+        <li>
+          <div
+          class="inner-li"
+          [routerLink]="['/main/roles']"
+          routerLinkActive="active"
+          [tooltip]="menu.isMini ? 'Roles' : ''"
+          placement="right"
+          container="body"
+        >
+        <i class="fa fa-address-book"></i><span>Roles</span>
+        </div>
+        </li>
+        <li>
+          <div
+          class="inner-li"
+          [routerLink]="['/main/capabilities']"
+          routerLinkActive="active"
+          [tooltip]="menu.isMini ? 'Capabilities' : ''"
+          placement="right"
+          container="body"
+        >
+        <i class="fa fa-address-book"></i><span>Capabilities</span>
+        </div>
+        </li>
+        <li>
+          <div
+          class="inner-li"
+          [routerLink]="['/main/settings/company']"
+          routerLinkActive="active"
+          [tooltip]="menu.isMini ? 'Company' : ''"
+          placement="right"
+          container="body"
+        >
+        <i class="fa fa-briefcase"></i><span>Company</span>
+        </div>
+        </li>
+        <li>
+          <div
+          class="inner-li"
+          [routerLink]="['/main/email']"
+          routerLinkActive="active"
+          [tooltip]="menu.isMini ? 'Email Template' : ''"
+          placement="right"
+          container="body"
+        >
+        <i class="fa fa-at"></i><span>Email</span>
+        </div>
+        </li>
+        <li>
+            <div
+            class="inner-li"
+            [routerLink]="['/main/pages']"
+            routerLinkActive="active"
+            [tooltip]="menu.isMini ? 'Static Pages' : ''"
+            placement="right"
+            container="body"
+          >
+          <i class="fa fa-file"></i><span>Static Pages</span>
+          </div>
+          </li>
+          <li>
+              <div
+              class="inner-li"
+              [routerLink]="['/main/faq']"
+              routerLinkActive="active"
+              [tooltip]="menu.isMini ? 'FAQ' : ''"
+              placement="right"
+              container="body"
+            >
+            <i class="fa fa-question"></i><span>FAQ</span>
+            </div>
+            </li> -->
+      </ul>
+      <!-- Admin Menu end -->
+    </perfect-scrollbar>
+  </div>
+</div>

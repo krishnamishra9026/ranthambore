@@ -1,0 +1,367 @@
+<perfect-scrollbar class="scroll-cnt-inner">
+  <div class="modal-header">
+    <div class="title-row py-0">
+      <div class="inner-page-title">Manage Product</div>
+    </div>
+    <button
+      type="button"
+      class="pull-right btn-close-popup mr-3"
+      aria-label="Close"
+      (click)="closeModal()"
+    >
+      <i class="ic-close"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+          <tabset #productTabs>
+              <tab heading="Information">
+        <div class="studnt-dashbrd-rgt-sec product-dashbrd-rgt-sec">
+          <form
+            name="productForm"
+            [formGroup]="productForm"
+            (ngSubmit)="productCreate()"
+            novalidate
+          >
+            <div class="home-reg-wrapper mr-0">
+              <div class="home-reg-form">
+                <div class="benefy-cmn-frm-sec">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-label">Name</label>
+                        <input
+                          class="form-control"
+                          id="name"
+                          placeholder="Enter Name"
+                          type="text"
+                          required
+                          formControlName="name"
+                        />
+                        <div *ngIf="submitted && productFrm.name.errors">
+                          <div
+                            class="validation-error"
+                            *ngIf="productFrm.name.errors.required"
+                          >
+                            Name is required
+                          </div>
+                          <div
+                            class="validation-error"
+                            *ngIf="productFrm.name.errors?.maxlength"
+                          >
+                            Name should be of max 50 characters.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row"> 
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                          <label class="form-label">Description</label>
+                          <textarea
+                            class="form-control"
+                            id="sdesc"
+                            placeholder="Enter Short Description"
+                            type="text"
+                            formControlName="shortDescription"
+                          ></textarea>
+                          <div *ngIf="submitted && productFrm.shortDescription.errors">
+                            <div
+                              class="validation-error"
+                              *ngIf="productFrm.shortDescription.errors?.maxlength"
+                            >
+                              Short Description should be of max 150 characters.
+                            </div>
+                          </div>
+                        </div></div>
+                  </div>
+                </div>
+                <div class="benefy-cmn-frm-sec">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-label">Brand</label>
+                        <ng-select
+                        [items]="brandList"
+                        bindLabel="name"
+                        bindValue="id"
+                        placeholder="Select brand"
+                        [selectOnTab]="true"
+                        formControlName="brand"
+                        autocomplete="nope"
+                      >
+                      </ng-select>
+                        <div *ngIf="submitted && productFrm.brand.errors">
+                          <div
+                            class="validation-error"
+                            *ngIf="productFrm.brand.errors.required"
+                          >
+                            Brand is required.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="parent" class="form-label">Category</label>
+                            <ng-select
+                        [items]="categoryList"
+                        bindLabel="name"
+                        bindValue="id"
+                        placeholder="Select category"
+                        (ngModelChange)="categoryChange($event)"
+                        formControlName="category"
+                        autocomplete="nope"
+                      >
+                      </ng-select>
+                      <div *ngIf="submitted && productFrm.category.errors">
+                          <div
+                            class="validation-error"
+                            *ngIf="productFrm.category.errors.required"
+                          >
+                            Category is required.
+                          </div>
+                        </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="benefy-cmn-frm-sec">
+                  <div class="row">
+                    
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="parent" class="form-label">Sub Category</label>
+                            <ng-select
+                        [items]="subCategoryList"
+                        bindLabel="name"
+                        bindValue="id"
+                        placeholder="Select sub category"
+                        
+                        formControlName="subCategory"
+                        autocomplete="nope"
+                      >
+                      </ng-select>
+                      <div *ngIf="submitted && productFrm.subCategory.errors">
+                          <div
+                            class="validation-error"
+                            *ngIf="productFrm.subCategory.errors.required"
+                          >
+                            Sub category is required.
+                          </div>
+                        </div>
+                          </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-label">Price</label>
+                            <input
+                              class="form-control"
+                              id="price"
+                              placeholder="Enter price"
+                              type="text"
+                              required
+                              formControlName="regularPrice"
+                            />
+                            <div *ngIf="submitted && productFrm.regularPrice.errors">
+                              <div
+                                class="validation-error"
+                                *ngIf="productFrm.regularPrice.errors.required"
+                              >
+                                Price is required
+                              </div>
+                              <div
+                                class="validation-error"
+                                *ngIf="productFrm.regularPrice.errors?.pattern"
+                              >
+                                price should be in valid format.
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="benefy-cmn-frm-sec">
+                  <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-label">Discounted price</label>
+                            <input
+                              class="form-control"
+                              id="dprice"
+                              placeholder="Enter Discounted Price"
+                              type="text"
+                              required
+                              formControlName="discountedPrice"
+                            />
+                            <div *ngIf="submitted && productFrm.discountedPrice.errors">
+                              <div
+                                class="validation-error"
+                                *ngIf="productFrm.discountedPrice.errors.required"
+                              >
+                                Discounted Price is required
+                              </div>
+                              <div
+                                class="validation-error"
+                                *ngIf="productFrm.discountedPrice.errors?.pattern"
+                              >
+                                Discounted price should be valid.
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <p class="form-check mt-5">
+                                <label class="form-check-label">Active
+                                    <input type="checkbox" formControlName="status" (change)="toggleStatus()" [checked]="isActive">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </p> 
+                          </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="benefy-cmn-frm-sec brdr-non">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="save-btm-btn">
+                        <button
+                          class="btn-cmn btn-green"
+                          type="submit">
+                          Save
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </form>
+        </div>
+      </tab>
+      <tab heading="Images">
+
+        <!-- Images Form start -->
+         <!-- Images Form end -->
+
+
+          <div class="studnt-dashbrd-rgt-sec product-dashbrd-rgt-sec">
+              <div class="home-reg-wrapper mr-0">
+                  <div class="home-reg-form">
+
+        <div class="row">
+        <div class="col-8">
+          <input type="file" multiple (change)="onFileChange($event)" #input class="m-img-upload-btn"/>
+          <button class="btn btn-primary btn-block" type="button">
+              <i class="fa fa-upload"></i> Choose images...
+          </button>
+      </div>
+      <div class="card images-container">
+          <div *ngFor="let image of selectedImages; let i=index;" class="m-image-wrapper">
+              <i class="fa fa-times m-delete-img" (click)="removeImage(i)"></i>
+              <img [attr.src]="image.url">
+          </div>
+      </div>
+        </div>
+                  </div>
+              </div>
+              </div>
+
+      </tab>
+      <tab heading="SEO">
+          <div class="studnt-dashbrd-rgt-sec product-dashbrd-rgt-sec">
+              <form
+              name="seoForm"
+              [formGroup]="seoForm"
+              (ngSubmit)="productCreate()"
+              novalidate
+            >
+          <div class="home-reg-wrapper mr-0">
+              <div class="home-reg-form" formGroupName="metadata">
+				 <div class="benefy-cmn-frm-sec">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="form-group">
+            <label for="Keyword" class="form-label">Keyword</label>
+            <textarea formControlName="keyword" class="form-control" rows="5"
+                name="keyword" maxlength="140" required></textarea>
+          </div>
+              </div>
+          </div>
+        </div>
+        <div class="benefy-cmn-frm-sec">
+          <div class="row">
+              <div class="col-lg-12">
+          <div class="form-group">
+            <label for="Title" class="form-label">Title</label>
+            <textarea formControlName="title" class="form-control" rows="5"
+                name="title" maxlength="140" required></textarea>
+          </div>
+              </div>
+          </div>
+        </div>
+        <div class="benefy-cmn-frm-sec">
+          <div class="row">
+              <div class="col-lg-12">
+          <div class="form-group">
+            <label for="description" class="form-label">Description</label>
+            <textarea formControlName="description" class="form-control" rows="5"
+                name="description" maxlength="140" required></textarea>
+          </div>
+        </div>
+          </div>
+        </div>
+			  </div>
+        </div>
+        </form>
+      </div>
+
+      </tab>
+    </tabset>
+      </div>
+    </div>
+  </div>
+</perfect-scrollbar>
+
+<footer class="fixed-step-footer">
+    <div class="footer-cnt-in">
+      <div class="footer-cnt-cell">
+        <div class="row mx-0">
+          <div class="col-lg-8 text-center">
+            <div class="btn-cnt">
+              <button
+                type="button"
+                class="btn-clear btn-cmn"
+                [ngClass]="{
+                  'btn-grey-light': currentStep === 1,
+                  'btn-green': currentStep !== 1
+                }"
+                (click)="previous()"
+                [disabled]="currentStep === 1"
+              >
+                Prev
+              </button>
+              <button
+                type="submit"
+                class="btn-clear btn-cmn btn-green"
+                (click)="next()"
+                [innerHTML]="currentStep === 3 ? 'Submit' : 'Next'"
+              ></button>
+            </div>
+          </div>
+          <div class="col-lg-4">
+              <div class="progressbar-cnt">
+                <label>Step {{ currentStep }} of 3</label>
+                <progressbar
+                  [value]="currentStep * 33.33"
+                  class="cus-step-progress"
+                ></progressbar>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </footer>

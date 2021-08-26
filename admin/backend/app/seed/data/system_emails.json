@@ -1,0 +1,196 @@
+[
+  {
+    "code": "FORGOT_PASSWORD_ADMIN",
+    "title": "Forgot password admin",
+    "fromEmail": "DX@Panel.com",
+    "fromName": "DX-Panel",
+    "subject": "Reset Password Email",
+    "message": "&lt;p&gt;&lt;strong&gt;Hello #firstName# #lastName#&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\nPlease goto the link bellow to reset your password.&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\n#verificationLink#&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\nThanks,&lt;br &#x2F;&gt;\n#siteName#&lt;br &#x2F;&gt;\n#siteUrl#&lt;&#x2F;p&gt;",
+    "variables": [
+      {
+        "name": "firstName",
+        "description": "first name of the user"
+      },
+      {
+        "name": "lastName",
+        "description": "last name of the user"
+      },
+      {
+        "name": "verificationLink",
+        "description": "link for verification"
+      },
+      {
+        "name": "siteName",
+        "description": "site name"
+      },
+      {
+        "name": "siteUrl",
+        "description": "site url"
+      }
+    ]
+  },
+  {
+    "code": "USER_REGISTRATION",
+    "title": "User registration",
+    "fromEmail": "DX@Panel.com",
+    "fromName": "DX-Panel",
+    "subject": "Registration Success",
+    "message": "&lt;p&gt;&lt;strong&gt;Hello #firstName# #lastName#&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\nYour account has been created successfully. You will get confirmation email very soon.&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\nThanks,&lt;br &#x2F;&gt;\n#siteName#&lt;br &#x2F;&gt;\n#siteUrl#&lt;&#x2F;p&gt;",
+    "variables": [
+      {
+        "name": "firstName",
+        "description": "First name of the user"
+      },
+      {
+        "name": "lastName",
+        "description": "Last name of the user"
+      },
+      {
+        "name": "siteName",
+        "description": "site name"
+      },
+      {
+        "name": "siteUrl",
+        "description": "site url"
+      }
+    ]
+  },
+  {
+    "code": "CONTACT_US_EMAIL",
+    "title": "Contact us email",
+    "fromEmail": "DX@Panel.com",
+    "fromName": "DX-Panel",
+    "subject": "Contact Us Info",
+    "message": "&lt;p&gt;&lt;strong&gt;Hello #name#&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\nYour contant stored successfully into our system, our customer care executives will call you ASAP.&lt;&#x2F;p&gt;\n\n&lt;p&gt;Your message details.&lt;&#x2F;p&gt;\n\n&lt;p&gt;email: #email#&lt;&#x2F;p&gt;\n\n&lt;p&gt;contact number: #number#&lt;&#x2F;p&gt;\n\n&lt;p&gt;message: #message#&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\nThanks,&lt;br &#x2F;&gt;\n#siteName#&lt;br &#x2F;&gt;\n#siteUrl#&lt;&#x2F;p&gt;",
+    "variables": [
+      {
+        "name": "name",
+        "description": "name of the person"
+      },
+      {
+        "name": "email",
+        "description": "email of the person"
+      },
+      {
+        "name": "phone",
+        "description": "contact number of the person"
+      },
+      {
+        "name": "message",
+        "description": "Contact us message body"
+      },
+      {
+        "name": "siteName",
+        "description": "site name"
+      },
+      {
+        "name": "siteUrl",
+        "description": "site url"
+      }
+    ]
+  },
+  {
+    "code": "CUSTOMER_FORGOT_PASSWORD",
+    "title": "Customer forgot password",
+    "fromEmail": "DX@Panel.com",
+    "fromName": "DX-Panel",
+    "subject": "Reset Password Email",
+    "message": "&lt;p&gt;&lt;strong&gt;Hello #firstName# #lastName#&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\nPlease goto the link bellow to reset your password.&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\n#verificationLink#&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\nThanks,&lt;br &#x2F;&gt;\n#siteName#&lt;br &#x2F;&gt;\n#siteUrl#&lt;&#x2F;p&gt;",
+    "variables": [
+      {
+        "name": "firstName",
+        "description": "first name of the user"
+      },
+      {
+        "name": "lastName",
+        "description": "last name of the user"
+      },
+      {
+        "name": "verificationLink",
+        "description": "link for verification"
+      },
+      {
+        "name": "siteName",
+        "description": "site name"
+      },
+      {
+        "name": "siteUrl",
+        "description": "site url"
+      }
+    ]
+  },
+  {
+    "code": "CUSTOMER_REGISTRATION",
+    "title": "Customer registration",
+    "fromEmail": "DX@Panel.com",
+    "fromName": "DX-Panel",
+    "subject": "Registration Success",
+    "message": "&lt;p&gt;&lt;strong&gt;Hello #firstName# #lastName#&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\nYour account has been created successfully. please verify your account by clicking this verification link given bellow&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\nLink : &lt;a href=&quot;#verificationLink#&quot;&gt; #verificationLink# &lt;&#x2F;a&gt;&lt;br &#x2F;&gt;\n&lt;br &#x2F;&gt;\n&lt;br &#x2F;&gt;;\nThanks,&lt;br &#x2F;&gt;\n#siteName#&lt;br &#x2F;&gt;\n#siteUrl#&lt;&#x2F;p&gt;",
+    "variables": [
+      {
+        "name": "firstName",
+        "description": "First name of the user"
+      },
+      {
+        "name": "lastName",
+        "description": "Last name of the user"
+      },
+      {
+        "name": "siteName",
+        "description": "site name"
+      },
+      {
+        "name": "siteUrl",
+        "description": "site url"
+      }
+    ]
+  },
+  {
+    "code": "CUSTOMER_SET_PASSWORD",
+    "title": "Customer set password",
+    "fromEmail": "DX@Panel.com",
+    "fromName": "DX-Panel",
+    "subject": "Set Password",
+    "message": "&lt;p&gt;&lt;strong&gt;Hello #firstName# #lastName#&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\nYour account has been Approved. please verify and set your account by clicking this verification link given bellow&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\nLink : &lt;a href=&quot;#verificationLink#&quot;&gt; #verificationLink# &lt;&#x2F;a&gt;&lt;br &#x2F;&gt;\n&lt;br &#x2F;&gt;\n&lt;br &#x2F;&gt;\nThanks,&lt;br &#x2F;&gt;\n#siteName#&lt;br &#x2F;&gt;\n#siteUrl#&lt;&#x2F;p&gt;",
+    "variables": [
+      {
+        "name": "firstName",
+        "description": "First name of the user"
+      },
+      {
+        "name": "lastName",
+        "description": "Last name of the user"
+      },
+      {
+        "name": "verificationLink",
+        "description": "Link for set password"
+      },
+      {
+        "name": "siteName",
+        "description": "site name"
+      },
+      {
+        "name": "siteUrl",
+        "description": "site url"
+      }
+    ]
+  },
+  {
+    "code": "CONTACTUS_REPLY",
+    "title": "Customer send reply",
+    "fromEmail": "DX@Panel.com",
+    "fromName": "DX-Panel",
+    "subject": "Send Reply",
+    "message": "&lt;p&gt;&lt;strong&gt;Hello #name# &lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;\n\n&lt;p&gt;&lt;br &#x2F;&gt;\n #message# br &#x2F;&gt;\nThanks,&lt;br &#x2F;&gt;\n#siteName#&lt;br &#x2F;&gt;\n#siteUrl#&lt;&#x2F;p&gt;",
+    "variables": [
+      {
+        "name": "name",
+        "description": "name of the user"
+      },
+      {
+        "name": "message",
+        "description": "message of the user"
+      }
+    ]
+  }
+]

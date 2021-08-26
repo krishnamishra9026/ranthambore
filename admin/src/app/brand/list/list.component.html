@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row title-row">
+    <div class="col-lg-12">
+      <div class="inner-page-title header">Brands</div>
+    </div>
+  </div>
+  <div class="row filter-row">
+    <div class="col-md-9">
+      <div class="input-group">
+        <input class="form-control" type="text" placeholder="Serach by Name..." value=""
+          [formControl]="searchtxtControl" />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="pull-right">
+        <button *ngIf="canAdd" class="btn btn-primary cursor-pointor mr-1" type="button" (click)="create()"
+          tooltip="Add">
+          <i class="fa fa-plus"></i>
+        </button>
+        <button *ngIf="canDelete" class="btn btn-outline-gray cursor-pointor mr-1" (click)="delete()" type="button"
+          tooltip="Delete" [disabled]="!this.brands.length">
+          <i class="fa fa-trash-o"></i>
+        </button>
+        <button *ngIf="canUpdate" class="btn btn-outline-gray cursor-pointor mr-1" type="button"
+          (click)="changeStatus('Active',null)" tooltip="Activate" [disabled]="!this.brands.length">
+          <i class="fa fa-unlock-alt"></i>
+        </button>
+        <button *ngIf="canUpdate" class="btn btn-outline-gray cursor-pointor mr-1" type="button"
+          (click)="changeStatus('In Active',null)" tooltip="In Activate" [disabled]="!this.brands.length">
+          <i class="fa fa-lock"></i>
+        </button>
+        <button class="btn btn-outline-gray cursor-pointor mr-1" type="button" (click)="refreshList()"
+          tooltip="Refresh">
+          <i class="fa fa-refresh"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-0">
+    <div class="col-lg-12 col-md-12 mb-12">
+      <ngx-datatable *ngIf="brands && brands.length > 0" #table class="material" [headerHeight]="50"
+        [columnMode]="'flex'" [footerHeight]="50" [rowHeight]="'auto'" [rows]="brands" [selected]="selected"
+        [selectionType]="'checkbox'" (select)="onSelect($event)" [externalPaging]="true" [count]="pageInfo.count"
+        [loadingIndicator]="gridLoadingIndicator" [offset]="pageInfo.pageNumber" [limit]="pageInfo.pageSize"
+        (page)="setPage($event)" (sort)="onSort($event)">
+        <ngx-datatable-column [width]="5" [flexGrow]="2" [sortable]="false" [canAutoResize]="false" [draggable]="true"
+          [resizeable]="false" [headerCheckboxable]="true" [checkboxable]="true">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Name" [width]="35" [flexGrow]="5" cellClass="text-truncate">
+          <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+            <span>{{ value }}</span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Status" prop="active" [width]="10" [flexGrow]="1">
+          <ng-template ngx-datatable-cell-template let-value="value">
+            <span class="badge badge-success" *ngIf="value">Active</span>
+            <span class="badge badge-gray" *ngIf="!value">In Active</span>
+          </ng-template>
+        </ngx-datatable-column>
+
+
+        <!-- taaaa -->
+
+        <ngx-datatable-column name=" " [width]="25" [flexGrow]="1">
+          <ng-template ngx-datatable-cell-template let-row="row">
+            <div class="edit-icon-sec">
+              <a (click)="update(row.id)" tooltip="Edit" *ngIf="canUpdate" [adaptivePosition]="false">
+                <i class="fa fa-edit fa-lg"></i>
+              </a>
+              <a (click)="changeStatus('Active',row.id)" *ngIf="canUpdate && !row.active" [adaptivePosition]="false"
+                tooltip="Activate"><i class="fa fa-unlock-alt fa-lg"></i>
+              </a>
+              <a tooltip="In Activate" *ngIf="canUpdate && row.active" [adaptivePosition]="false"
+                (click)="changeStatus('In Active',row.id)">
+                <i class="fa fa-lock fa-lg"></i>
+              </a>
+            </div>
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+      <div class="no-data-found" *ngIf="!brands || !brands.length">
+        <div class="no-data-found-sec"><i><img alt="" src="assets/images/norecord-img.png"></i><span>No data for
+            listing</span></div>
+      </div>
+    </div>
+  </div>
+</div>

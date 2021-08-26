@@ -1,0 +1,35 @@
+<div widget class="card border-0" style="display: none;">
+  <div class="card-header transparent border-0 text-muted brder-btm mb-3">
+    <h5 class="mb-0">To Do List</h5>
+
+  </div>
+  <div class="card-body widget-body pt-2">
+    <div class="task-todo-container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="input-group">
+            <input type="text" value="" class="form-control" placeholder="Task to do..." (keyup)="addToDoItem($event)"
+              [(ngModel)]="newTodoText" />
+            <div class="ml-1">
+              <button class="btn btn-primary" type="button" (click)="addToDoItem($event)">
+                <i class="fa fa-plus add-item-icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <ul class="todo-list" perfectScrollbar>
+            <li *ngFor="let item of getNotDeleted()" [ngClass]="{checked: item.isChecked, active: item.isActive}"
+              (mouseenter)="item.isActive=true" (mouseleave)="item.isActive=false">
+              <input type="checkbox" [(ngModel)]="item.isChecked">
+              <span class="cut-with-dots">{{ item.text }}</span>
+              <i class="fa fa-trash text-danger" (click)="item.deleted = true"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

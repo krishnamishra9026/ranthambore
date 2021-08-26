@@ -1,0 +1,159 @@
+<perfect-scrollbar class="scroll-cnt-inner">
+  <div class="modal-header">
+    <div class="title-row py-0">
+      <div class="inner-page-title">Edit Profile</div>
+    </div>
+    <button
+      type="button"
+      class="pull-right btn-close-popup"
+      aria-label="Close"
+      (click)="closeModal()"
+    >
+      <i class="ic-close"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="studnt-dashbrd-rgt-sec school-dashbrd-rgt-sec">
+          <div
+            class="home-reg-wrapper mr-0"
+          >
+            <form
+              name="editProfileForm"
+              [formGroup]="editProfileForm"
+              (ngSubmit)="editProfile()"
+              autocomplete="off"
+              novalidate
+            >
+              <div class="schl-dashbrd-upload-pic">
+                <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <div class=" user-profile-pic image-place">
+                      <img [src]="profile_pic" />
+                      <div class="btn-file-input">
+                        <input
+                          type="file"
+                          class="form-control"
+                          accept="image/*"
+                          (change)="onFileChange($event)"
+                        />
+                        <i class="pencil-icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="home-reg-form">
+                <div class="benefy-cmn-frm-sec">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input
+                          id="firstName"
+                          required
+                          class="form-control"
+                          placeholder=" "
+                          type="text"
+                          formControlName="firstName"
+                        />
+                        <div *ngIf="submitted && editProFrm.firstName.errors">
+                          <div
+                            class="validation-error"
+                            *ngIf="editProFrm.firstName.errors.required"
+                          >
+                            First Name is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input
+                          id="lastName"
+                          required
+                          class="form-control"
+                          placeholder=" "
+                          type="text"
+                          formControlName="lastName"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="benefy-cmn-frm-sec">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input
+                          id="Email"
+                          class="form-control"
+                          placeholder=" "
+                          type="text"
+                          formControlName="email"
+                          required
+                        />
+
+                        <div *ngIf="submitted && editProFrm.email.errors">
+                          <div
+                            class="validation-error"
+                            *ngIf="editProFrm.email.errors.required"
+                          >
+                            Email Address is required
+                          </div>
+                          <div
+                            class="validation-error"
+                            *ngIf="editProFrm.email.errors.email"
+                          >
+                            Invlid Email Address.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input
+                          id="mobile"
+                          class="form-control"
+                          placeholder=" "
+                          type="number"
+                          formControlName="mobile"
+                          required
+                        />
+
+                        <div *ngIf="submitted && editProFrm.mobile.errors">
+                          <div
+                            class="validation-error"
+                            *ngIf="editProFrm.mobile.errors.required"
+                          >
+                            Mobile Number is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="benefy-cmn-frm-sec brdr-non">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="save-btm-btn">
+                        <button class="btn-cmn btn-green" type="submit">
+                          Save
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</perfect-scrollbar>

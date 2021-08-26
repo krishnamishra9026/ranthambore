@@ -1,0 +1,29 @@
+@import "../../../../assets/theme/variables";
+
+.studnt-dashbrd-rgt-sec.school-dashbrd-rgt-sec {
+	.schl-dashbrd-upload-pic {
+		.user-profile-pic {
+			float: none;
+			margin: 0 auto 30px;
+		}
+	}
+
+	.home-reg-form {
+		.benefy-cmn-frm-sec {
+			.form-group {
+				width: 100%;
+			}
+
+			.save-btm-btn {
+				margin-top: 25px;
+				text-align: center;
+
+				.btn-cmn {
+					width: 165px;
+					margin: 0 auto;
+					display: inline-block;
+				}
+			}
+		}
+	}
+}

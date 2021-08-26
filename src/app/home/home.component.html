@@ -1,0 +1,492 @@
+<section id="sectionone">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-5">
+        <ul class="list-inline menu">
+          <li><a href="#">Hotels in Ranthambore</a></li>
+          <li><a routerLink="about-us/">About Ranthambore</a></li>
+          <li><a routerLink="contact-us/">Contact Us</a></li>
+          <li><a href="#"  data-toggle="modal" data-target="#myModal">Current Booking</a></li>          
+          <li><a href="http://blog.ranthamboretigerreserve.in/" target="_blank">Blog</a></li>          
+          <li><a href="cambal-safari">Cambal Safari Booking</a></li>          
+        </ul>
+        <div class="bookpanel">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="logo">
+                <a href="/"><img src="assets/image/logo.png" class="img-responsive" alt="Ranthambore Safari"></a>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <ul class="list-unstyled callus">
+                <li><a href="tel:7838498645"><img src="assets/image/icons/call.jpg" alt="Call"> +91 7838 4986 45</a></li>
+                <li><a href="tel:7289842772"><img src="assets/image/icons/call.jpg" alt="Call"> +91 7289 8427 72</a></li>
+                <li><a href="tel:8929631440"><img src="assets/image/icons/call.jpg" alt="Call"> +91 8929 6314 40</a></li>
+                <li><a href="mailto:ranthambore360@gmail.com"><img src="assets/image/icons/email.jpg" alt="Email"> ranthambore360@gmail.com</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="panelpadding">
+            <h1>Ranthambore Jungle Safari</h1>
+            <p class="font17">Please select the dates</p>
+            <div id="calendar"></div>
+            <div class="error-date-selected col-sm-12" style="display: none; margin-bottom:10px;font-size:18px;color: #eb394a;font-weight: 600;"></div>
+            <form class="form" id="form_date">
+              <div class="row">                
+                <div class="col-sm-6 padding-right-five">
+                  <div class="input-group selectdesign">
+                    <span class="input-group-btn">
+                      <img src="assets/image/icons/zone.png" alt="zone">
+                    </span>
+                    <select class="form-control" id="zone" name="zone" required>
+                      <option>Select your Zone</option>
+                      <option value="Zone1">Zone 1/2/3/4/5/6/7</option>
+                      <option value="Zone2">Zone 8/9/10</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6 padding-left-five">
+                  <div class="input-group selectdesign">
+                    <span class="input-group-btn">
+                      <img src="assets/image/icons/jeep.png" alt="zone">
+                    </span>                    
+                    <select class="form-control" id="vehicle" name="vehicle" required>
+                      <option>Select your Vehicle</option>
+                      <option value="Canter">Canter</option>
+                      <option value="Gypsy">Gypsy</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6 padding-right-five">
+                  <div class="input-group selectdesign">
+                    <span class="input-group-btn">
+                      <img src="assets/image/icons/zone2.png" alt="zone">
+                    </span>                    
+                    <select class="form-control" id="timing" name="timing" required>
+                      <option>Select Timing</option>
+                      <option value="Morning">Morning</option>
+                      <option value="Evening">Evening</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6 padding-left-five">
+                  <div class="booknowbtn">
+                    <button id="stepone" class="btn btn-primary btn-block" type="submit" value="">Book Now</button>
+                  </div>
+                </div>
+                <div class="error-zone col-sm-6" style="display: none; margin-top:10px;font-size:18px;color: #eb394a;font-weight: 600;"></div>
+                <div class="error-vehicle col-sm-6" style="display: none; margin-top:10px;font-size:18px;color: #eb394a;font-weight: 600;"></div>
+                <div class="error-timing col-sm-6" style="display: none; margin-top:10px;font-size:18px;color: #eb394a;font-weight: 600;"></div>
+                <input type="hidden" id="date_selected" name="date_selected">
+              </div>
+            </form>            
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-7 padding-right-zero">
+        <div class="mainbanner">
+          <img src="assets/image/newbg.jpg" class="img-responsive" alt="Ranthambore Safari">
+        </div>
+        <div>
+          <div class="timetable">
+            <div class="row margin0">
+                <div class="col-sm-5 col-xs-6 padding-right-zero">
+                  <div class="tableMonths">
+                    <span class="headtop">Months</span>
+                    <ul class="list-unstyled">
+                      <li class="tbg">From 1st Oct to 31st Oct:</li>
+                      <li>From 1st Nov to 31st Jan:</li>
+                      <li class="tbg">From 1st Feb to 31st Mar:</li>
+                      <li>From 1st April to 15th May:</li>
+                      <li style="border-bottom: none;" class="tbg">From 16th May to 30th June:</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-sm-7 col-xs-6 padding-left-zero padding-right-zero">
+                  <div class="tableTiming">
+                    <span class="headtop">Safari Timings:</span>
+                    <ul class="list-inline">
+                      <li class="tbg"><span>06:30 am - 10:00 am & 02:30 pm - 06:00 pm</span></li>
+                      <li><span>07:00 am - 10:30 am & 02:00 pm - 05:30 pm</span></li>
+                      <li class="tbg"><span>06:30 am - 10:00 am & 02:30 pm - 06:00 pm</span></li>
+                      <li><span>06:00 am - 09:30 am & 03:00 pm - 06:30 pm</span></li>
+                      <li style="border-bottom: none;" class="tbg"><span>06:00 am - 09:30 am & 03:30 pm - 07:00 pm</span></li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="notes">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <tr>
+                  <td class="nbg">1.</td>
+                  <td>Zone will be allowed as per availability</td>
+                </tr>
+                <tr>
+                  <td class="nbg">2.</td>
+                  <td>Visitor can select either Zone 1 to 7 or 8 to 10</td>
+                </tr>
+                <tr>
+                  <td class="nbg">3.</td>
+                  <td>There are 10 Safari Zone in Ranthambore National park</td>
+                </tr>
+                <tr>
+                  <td class="nbg">4.</td>
+                  <td>If you select Safari for 1 to 7 Zone that means your safari will be conducted in any one Zone, same as for Zone 8 to 10</td>
+                </tr>
+                <tr>
+                  <td class="nbg">5.</td>
+                  <td>In Case of current booking any of the zone between 1 and 10 can be alloted</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="information">
+      <h2>Ranthambore National Park - Ranthambore Jungle Safari</h2>
+      <p class="special">Ranthambore National Park Safari Booking Online Here, Book Jeep Safari and Center Safari, both are available. Ranthambore Jungle Safari is our official site. Ranthambore National Park is one of the biggest and most renowned national park in Northern India. The park is located in the Sawai Madhopur district of southeastern Rajasthan, which is about 130 km from Jaipur. Being considered as one of the famous and former hunting grounds of the Maharajas of Jaipur, today the Ranthambore National Park terrain is major wildlife tourist attraction spot that has pulled the attention of many wildlife photographers and lovers in this destination.</p>
+      <div class="tabletabs tabletabs2">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab-history" data-toggle="tab">History of Ranthambhore</a></li>
+          <li><a href="#tab-reach" data-toggle="tab">How to Reach</a></li>
+          <li><a href="#tab-visit" data-toggle="tab">Best Time to Visit</a></li>
+          <li><a href="#tab-faq" data-toggle="tab">FAQ</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane" id="tab-reach">
+            <div class="canalList">
+              <!-- <div class="icons">
+                <i class="fa fa-check"></i>
+              </div> -->
+              <div class="lists">
+                <p>
+                  <p style="text-align: center;"><strong>WAYS TO RANTHAMBHORE NATIONAL PARK</strong></p>
+                  <p><span style="font-weight: 400;">If you are willing to see nature at its best, Wild animals in their natural habitat and tigers roaming freely all around then come to RANTHAMBHORE NATIONAL PARK. A famously known park for Bengal tigers and varied types of species is a hidden jewel of Jaipur.</span></p>
+                  <p><span style="font-weight: 400;">This park was early a famous hunting ground for Maharajas of Jaipur. But later due to constant poaching of tigers and to protect them from threat, the place was converted into the national park.&nbsp;</span></p>
+                  <p><span style="font-weight: 400;">The place got its name from the fort RANTHAMBHORE situated in the middle of this park. This palace has witnessed the major history of this national park.</span></p>
+                  <p><span style="font-weight: 400;">This place is the topmost tourist destination in Rajasthan with an amazing history along with nature.&nbsp;</span></p>
+                  <p><span style="font-weight: 400;">Reaching this place is not a very difficult task. The place is connected with all of the major cities including Delhi, Mumbai, Kolkata, and Ahmedabad.</span></p>
+                  <p><span style="font-weight: 400;">A tourist can easily reach this place by air, rail and even by road. It is an easily approachable place. The place is worth visiting.&nbsp;</span></p>
+                  <p style="text-align: center;"><strong>AIR ROUTE FOR RANTHAMBORE NATIONAL PARK&nbsp;</strong></p>
+                  <p></p>                  
+                  <p><span style="font-weight: 400;">Reaching RANTHAMBHORE NATIONAL PARK via air is quite easy and convenient. There is no direct airport to this place. But the nearest airport for reaching the RANTHAMBHORE National PARK is Sanganer Airport located in Jaipur. The distance from the airport to RANTHAMBHORE Park is 180 km which can be easily covered by taxi or buses. The tourist can also book a cab for reaching this place.&nbsp;</span></p>
+                  <p><span style="font-weight: 400;">There are regular flights operating between all of the major cities like Delhi, Mumbai, Kolkata, and Ahmedabad. The direct flights to Jaipur are also available from all of the major cities.</span></p>
+
+                  <p style="text-align: center;"> <strong>RAILWAYS FOR RANTHAMBORE NATIONAL PARK&nbsp;</strong></p>
+                  
+                  <p><span style="font-weight: 400;">Reaching the Ranthambhore National Park by rail is also easy and comfortable. The nearest railway station connecting Ranthambhore national park in Sawai Madhopur Railway. It is 11 km far from the national park. For reaching the destination, the tourist cab takes Cab, taxi or even bus. All of these can easily be booked online. Traveling to Ranthambhore national park is a hassle-free task via rail.</span></p>
+                  <p><span style="font-weight: 400;">There are numerous trains that operate from different cities to this place. Trains on almost a daily basis operate between Jaipur Railway station to major cities like Delhi, Mumbai, Ahmedabad, and Kolkata. Bookings for the train can be made online by the tourist for a comfortable journey.</span></p>
+                  <p></p>
+                   <p style="text-align: center;"> <strong>BY ROAD FOR RANTHAMBORE NATIONAL PARK</strong></p>                  
+                  <p><span style="font-weight: 400;">Reaching Ranthambhore National Park via road is uncomplicated. The place is well connected with all the major cities like Delhi, Ahmedabad, Mumbai, and Kolkata. Thus, using the road as a mode of traveling to Ranthambhore is simple and accessible.&nbsp;</span></p>
+                  <p><span style="font-weight: 400;">Ranthambhore is approximately 417km away from Delhi, 657 km away from Ahmedabad, 1102 km from Mumbai and 1572 km from Kolkata.&nbsp;</span></p>
+                  <p><span style="font-weight: 400;">The tourist can avail private state bus service for traveling to this place smoothly. Also, private cars, traveler buses, taxi, a cab can also be used for traveling to this place. The easy connectivity of roads makes the route to this place simple and easy to reach.</span></p>
+                  <p style="text-align: center;"><strong>FINAL VERDICT&nbsp;</strong></p>
+                  <p><span style="font-weight: 400;">Ranthambhore national park is a mind-blowing place. The weather and atmosphere of this place are unique in itself. A major highlight of this place is the availability of a varied variety of both flora and fauna. This makes this place even more beautiful and breath-taking.</span></p>
+                  <p><span style="font-weight: 400;">The questions like HOW TO REACH RANTHAMBHORE NATIONAL PARK or HOW TO VISIT RANTHAMBORE NATIONAL PARK has been answered. The easy connectivity via all 3 ways that is by road, by air, and by rail makes traveling to this place very user-friendly and suitable for all types of travelers.</span></p>
+                  <p><br /><br /></p>
+               
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane active" id="tab-history">
+            <div class="canalList">
+              <!-- <div class="icons">
+                <i class="fa fa-check"></i>
+              </div> -->
+              <div class="lists">
+                <p>
+                  <p style="text-align: center;"><strong>RANTHAMBHORE NATIONAL PARK- A LAND OF TIGERS</strong></p>
+                  <p>RANTHAMBORE NATIONAL PARK<span style="font-weight: 400;">is one of the renowned and well-known tiger lands. It is the only one and the biggest national park in the world with numerous types of species, flora, and fauna.&nbsp;</span></p>
+                  <p><span style="font-weight: 400;">&nbsp;The </span>RANTHAMBHORE National PARK<span style="font-weight: 400;"> got its name from the RANTHAMBHORE fort which is in the middle of the jungle. This fort witnessed the major history and changes of this park.&nbsp;</span></p>
+                  <p><span style="font-weight: 400;">Before independence, there was extensive forest cover on the Indian subcontinent. But with the increasing population and industrialization, the forest was badly exploited. And with the shrinking forest, the wildlife of the country also started shortening. This became a source of concern for the nation resulting in strict rules and policies for RANTHAMBHORE PARK.</span></p>
+                  <p style="text-align: center;"><strong>MAHARAJAS HUNTING GROUND</strong></p>
+                  <p>RANTHAMBHORE NATIONAL PARK <span style="font-weight: 400;">was previously privately owned by the MAHARAJAS of Jaipur. Until the year 1955, it was an exclusive and popular hunting ground of Jaipur's Royal family. And after that, it was declared &ldquo; Sawai Madhopur Sanctuary&rdquo;.&nbsp;</span></p>
+                  <p><span style="font-weight: 400;">But due to constant fall in the numbers of tigers, in the year 1973, the sanctuary was declared under the project tiger to protect the tigers.&nbsp;</span></p>
+                  <p><span style="font-weight: 400;">More strict policies and rules were formulated to make project Tiger a success. And then the major rule came in the year 1980 when 282.03 sq. Km of this sanctuary was declared national park. After this, the collection of forest produce by the government was reduced.&nbsp;</span></p>
+                  <p><span style="font-weight: 400;">And then in 1983, an adjacent north side of the land was named Kela Devi Sanctuary. Similarly, 130 sq km in 1984 was declared Sawai Mansingh Sanctuary.</span></p>
+                  <p style="text-align: center;"><strong>MAJOR ACHIEVEMENTS</strong></p>
+                  <p><span style="font-weight: 400;">With the government constant support for project Tiger and Tiger conservation reserve, an ace result was achieved. In the year 2014 census, the tiger count reached 60. Also, after that, this land became the most preferred land for experiencing wildlife animals and especially tigers in their natural habitat.</span></p>
+                  <p><span style="font-weight: 400;">In 1970, tiger sightseeing in the park was extremely rare. Then in 1991, notoriety was attained as per which illegal poaching of the tiger was a punishable offense. And since then the number of tigers constantly increased until 2005 when the demand for tiger skin shot up from China and Tibet. The park was again in danger of poachers. but with the constant support of authority, the number of tigers didn't decrease. and a good number of tigers in the park were achieved.</span></p>
+                  <p style="text-align: center;"><strong>A TRIP TO RANTHAMBHORE NATIONAL PARK&nbsp;</strong></p>
+                  <p><span style="font-weight: 400;">Ranthambore Park is an amazing and fantastic place for wildlife lovers and enthusiastic. The land is the home for over 40 species of mammals, 320 species of birds, over 40 species of reptiles. Also, there is a wide variety of fauna.</span></p>
+                  <p><span style="font-weight: 400;">In Layman&rsquo;s term, the place is uncommon and one of kind in the world.</span> RANTHAMBHORE SIGHTSEEING and RANTHAMBORE SAFARI<span style="font-weight: 400;"> is a matchless experience. For </span>RANTHAMBHORE TIGER RESERVE AREA, <span style="font-weight: 400;">an online advance </span>RANTHAMBHORE BOOKING<span style="font-weight: 400;"> can be made. This includes both </span>RANTHAMBHORE SAFARI BOOKING AND RANTHAMBORE JEEP SAFARI BOOKIN<span style="font-weight: 400;">G. The place has a huge number of visitors that include both Indians and foreigners.&nbsp;</span></p>
+                  <p><span style="font-weight: 400;">the place is known for its inheritance and conventions.</span></p>
+                  <p style="text-align: center;"><strong>FINAL WORDS</strong></p>
+                  <p>RANTHAMBHORE TIGER RESERVE AREA<span style="font-weight: 400;"> is also known as a Land of Tigers. The wide variety of flora and fauna makes this place the best tourist spot. Also, the Ranthambhore fort is included in the world heritage site. It is famously known for its glory and valor.&nbsp;</span></p>
+                  <p><span style="font-weight: 400;">RANTHAMBHORE NATIONAL PARK is worth sightseeing. The jungle safari is a major tourist attraction. The best time to visit the park is from October to December. The park remains closed during the monsoon season. So plan your trip to RANTHAMBHORE NATIONAL PARK accordingly.</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-visit">
+            <div class="canalList">
+              <!-- <div class="icons">
+                <i class="fa fa-check"></i>
+              </div> -->
+              <div class="lists">
+                <p style="text-align: center;"><strong>TRIP TO RANTHAMBHORE NATIONAL PARK</strong></p>
+                <p><span style="font-weight: 400;">If you are a wild life lover and wishing to know more about them then you must have a visit at </span>Ranthambore National Park<span style="font-weight: 400;">.&nbsp;</span></p>
+                <p><span style="font-weight: 400;">A land of tigers in their natural habitat is worth visiting. </span>Ranthambhore Sightseeing and Ranthambhore Safari<span style="font-weight: 400;"> are world-famous. This park only one of kind in the world.&nbsp;</span></p>
+                <p style="text-align: center;"><strong>UNIQUENESS OF RANTHAMBHORE NATIONAL PARK&nbsp;</strong></p>
+                <p>Ranthambhore Park <span style="font-weight: 400;">also known as </span>Ranthambhore Tiger Reserve Area <span style="font-weight: 400;">derived its name from RANTHAMBHORE fort. The fort is located in the middle of the park. It was made 1000 years ago and since then it has witnessed major changes in this park. Also, this fort is listed as a World Heritage Site.</span></p>
+                <p style="text-align: center;"><strong>MORE ABOUT RANTHAMBORE NATIONAL PARK</strong><strong>&nbsp;</strong></p>
+                <p>Ranthambhore National Park <span style="font-weight: 400;">is over the area of 400 sq. km. It is a land for over 40 species of mammals, 320 species of birds and 40 species of reptiles. As this land is dry and receives less rainfall therefore, it has a small number of amphibians.</span></p>
+                <p><span style="font-weight: 400;">Also, the land has a varied type of flora. There are over 300 species of fauna. Everything of this land is unique in itself.&nbsp;</span></p>
+                <p style="text-align: center;"><strong>FACTS ABOUT RANTHAMBHORE NATIONAL PARK&nbsp;</strong></p>
+                <p><span style="font-weight: 400;">Situated in the desert state of Rajasthan, the forest remains dry for more than eight months. This makes huge chances of spotting elusive big cats.&nbsp;</span></p>
+                <p>Ranthambhore Park<span style="font-weight: 400;"> was previously privately owned by the Maharajas of Jaipur. It was their hunting reserve. But after a major shrink in the numbers of tigers, the land came into the control of the government.&nbsp;</span></p>
+                <p><span style="font-weight: 400;">Major rules and laws were passed to protect the tigers and in the year 2014, the number of tigers in the land substantially increased.</span></p>
+                <p style="text-align: center;"><strong>BEST TIME TO VISIT RANTHAMBHORE NATIONAL PARK&nbsp;</strong></p>
+                <p><span style="font-weight: 400;">The best time to visit </span>Ranthambhore National Park<span style="font-weight: 400;"> is from October to April. The weather during this time is pleasant and there is no discomfort in enjoying the safari. The days are hot and may have temperatures varying between 16-20 degrees in the daytime.&nbsp;</span></p>
+                <p><span style="font-weight: 400;">But the park remains closed during the monsoon season as this time is considered as a mating time of tigers. It opens in October and closes in June. Park opens as per the safari timings.</span></p>
+                <p><span style="font-weight: 400;">Ranthambore National Park is a marvelous place with stunning sightseeing and views. The climate and surroundings are incomparable and matchless. This place also has the second-largest banyan tree in the world.&nbsp;</span></p>
+                <p></p>
+                <p style="text-align: center;"><strong>SIGHTSEEING AT RANTHAMBHORE PARK</strong></p>
+                <p>Ranthambhore Tiger Reserve Area<span style="font-weight: 400;"> is a perfect sightseeing place. This place is a dry deciduous forest, therefore, there is little undergrowth. The trees shed their leaves in the dry season. As the land receives less rainfall, therefore there are few patches of tall grass making the tiger visibility very clear.</span></p>
+                <p><span style="font-weight: 400;">The forest track is an amazing network for the best tracking of animals from vehicles. Also, this enables viewing fauna in a better way.</span></p>
+                <p><span style="font-weight: 400;">Spotting a tiger on safari is a matter of luck. But to improve the chances, it is better to have a little knowledge about the movement of tigers. And this information can be gathered from local guides and drivers. Their observations make the trip more interesting and fun.</span></p>
+                <p style="text-align: center;"><strong>PLANNING A TRIP TO RANTHAMBHORE&nbsp; NATIONAL PARK</strong></p>
+                <p><span style="font-weight: 400;">It is always the best option to have </span>Ranthambhore Booking<span style="font-weight: 400;"> in advance. The </span>Ranthambhore Safari Booking and Ranthambhore Jeep Safari Booking <span style="font-weight: 400;">can also be made for the utmost comfort.&nbsp;</span></p>
+                <p><span style="font-weight: 400;">There are 2 safari timings of </span>Ranthambhore Park<span style="font-weight: 400;">. One is in the early morning and the other is in the evening.</span></p>
+                <p>Ranthambhore National Park<span style="font-weight: 400;"> is a wonderful place of tigers in their natural habitat. The place is one in the kind in the world.&nbsp;</span></p>
+                <p><span style="font-weight: 400;">The best time to visit this place is October to December as after monsoon, there are huge new migrants of bird species. Also, greenery and newly grown flora make this place more beautiful and vibrant.</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-faq">
+            <div class="canalList">
+              <!-- <div class="icons">
+                <i class="fa fa-check"></i>
+              </div> -->
+              <div class="lists">
+                <h3 style="text-align: center;padding-top: 0px;margin-top: 5px;margin-bottom: 0px;"><strong>FAQS FOR RANTHAMBHORE NATIONAL PARK</strong></h3>
+                <p style="text-align: center;"><strong>Which time safari is better for spotting tigers &ndash; morning or evening?</strong></p>
+                <p><strong>Ans - </strong><span style="font-weight: 400;"> Spotting tigers in the national park is all dependent on luck. Knowledge about the tiger&rsquo;s route is very important. The guides usually have the right and appropriate knowledge about these facts.&nbsp;</span></p>
+                <p><span style="font-weight: 400;">Also, animals stay in there caves when the sun is at peak. Therefore early morning and late evening are the best time for spotting tigers. Along with this, the morning of summers and evenings of winters are the best time to spot the wild animals.</span></p>
+                <p></p>
+                <p style="text-align: center;"><strong>What are zones for tiger sighting in the Ranthambhore national park?</strong></p>
+                <p><strong>Ans - </strong><span style="font-weight: 400;">- there are 10 zones for tiger sighting. And every track takes you to the heart of the park. Whether canter or jeep, both travel on the same track in the national park. No region of the forest is bad for the sighting of animals. Also, for the zone availability, the tourist needs to book in 90 days advance to the date of the visit. Every zone is better on different days. The best zone for a particular visit can be ascertained only 2- 3 ago to the visit.</span></p>
+                <p></p>
+                <p style="text-align: center;"><strong>Is tiger sighting easy in RANTHAMBHORE NATIONAL PARK?</strong></p>
+                <p><strong>Ans - </strong><span style="font-weight: 400;"> Ranthambhore National park is the biggest and only national park with a wide variety of flora and fauna. Also, among all the nations, this park is the only park with the largest number of tigers in the natural habitat.</span></p>
+                <p><span style="font-weight: 400;">However, sighting a tiger in the national park is all a matter of luck for the tourist. The tigers are considered to be shy and elusive animals. And therefore spotting them especially in their natural habitat is a matter of chance.</span></p>
+                <p><span style="font-weight: 400;">Usually, every visitor can sight a tiger at least once in a safari.</span></p>
+                <p></p>
+                <p style="text-align: center;"><strong>Which is a better mode for Jungle safari- jeep or Canter?</strong></p>
+                <p><strong>Ans - </strong><span style="font-weight: 400;">- Both of the vehicles are good and appropriate for traveling in Ranthambhore National park. Whether it is jeep or canter, both take the similar track route of the safari.&nbsp;</span></p>
+                <p><span style="font-weight: 400;">The difference between both is that jeep is quite expensive but is personal. They are very noisy. While canter is affordable and less noisy.</span></p>
+                <p><span style="font-weight: 400;">The chance of sighting the tiger from both the vehicle is the same. Also, the jeep is ideal for 4- 6 groups of people while for that canter is a better option. Both of these vehicles are open from the top.</span></p>
+                <p></p>
+                <p style="text-align: center;"><strong>How to reach Ranthambhore National Park?</strong></p>
+                <p><strong>Ans - </strong><span style="font-weight: 400;"> There is no direct flight or train to Ranthambhore national park. The nearest airport is Jaipur airport. Also, it is 180 km away from the national park and the tourist can take a cab or taxi to commute from the airport to the park.&nbsp;</span></p>
+                <p><span style="font-weight: 400;">The other mode which is most preferred and convenient is by rail. The Sawai Madhopur railway station which is 11 km away from the national park. It is the choicest option as it is easy to reach and also less time-consuming.</span></p>
+                <p></p>
+                <p style="text-align: center;"><strong>Which is the best time to visit the RANTHAMBHORE national park?</strong></p>
+                <p><strong>Ans - </strong><span style="font-weight: 400;"> The RANTHAMBHORE national park is open for public visits from the 1</span><span style="font-weight: 400;">st</span><span style="font-weight: 400;"> of Oct to the 30</span><span style="font-weight: 400;">th</span><span style="font-weight: 400;"> of June every year. It remains closed during the monsoon season because this time is considered to be an ideal mating time for the tigers.&nbsp;</span></p>
+                <p><span style="font-weight: 400;">The tigers are less seen during extremely hot weather and therefore, November to April is an ideal time for visiting this place. A pleasant atmosphere ensures a hassle-free journey.&nbsp;</span></p>
+                <p><span style="font-weight: 400;">For a bird lover, November to February is considered to be the best time for visiting this place. The place is occupied with the beautiful migratory place.</span></p>
+                <p><span style="font-weight: 400;">The summer remains very hot for stepping out there but sighting tiger during this time is relatively high.</span></p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+      <h3>Attractions in Ranthambore</h3>
+      <div class="row">
+        <div class="col-sm-6 col-xs-6">
+          <img src="assets/image/banner/jeep.jpg" class="img-responsive" alt="Jeep Safari">
+          <div class="caption">
+            <span>Jeep Safari</span>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-6">
+          <img src="assets/image/banner/canter.jpg" class="img-responsive" alt="Canter Safari">
+          <div class="caption">
+            <span>Canter Safari</span>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-6">
+          <img src="assets/image/banner/sight.jpg" class="img-responsive" alt="Sight Seeing">
+          <div class="caption">
+            <span>Sight Seeing</span>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-6">
+          <img src="assets/image/banner/bird.jpg" class="img-responsive" alt="Birds Attraction">
+          <div class="caption">
+            <span>Birds Attraction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--The content below is only a placeholder and can be replaced.-->
+
+<!------ Include the above in your HEAD tag ---------->
+  
+<div *ngIf="showForm" class="modal fade" id="myModal">
+  <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+           <span class="modal-title">Current Booking Form:</span>
+           <button type="button" class="close" id="CloseButton" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-div">
+            <form #f="ngForm" (ngSubmit)="f.form.valid && register()" novalidate>
+              <div class="form-group">
+                <label class="control-label">Full Name:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" [(ngModel)]="data.name" #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required>
+                <div *ngIf="f.submitted && name.invalid" class="alert alert-danger">
+                  <div *ngIf="name.errors.required">Name is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label">Mobile Number:</label>
+                <input type="text" class="form-control" id="mobile" name="mobile" (blur)="onBlurMethod()" placeholder="Enter mobile No." [(ngModel)]="data.mobile" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }" required>
+                <div *ngIf="f.submitted && mobile.invalid" class="alert alert-danger">
+                  <div *ngIf="mobile.errors.required">Mobile No. is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label">Email id:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" [(ngModel)]="data.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required>
+                <div *ngIf="f.submitted && email.invalid" class="alert alert-danger">
+                  <div *ngIf="email.errors.required">Email is required</div>
+                </div>
+              </div>
+  <!--               <div class="form-group">
+                  <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd"
+                    name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                    </div>
+                  </div>
+                </div> -->
+
+              <div class="form-group">
+                <label class="control-label">Safari Date:</label>
+                <input class="form-control"  data-date-format="dd/mm/yyyy" id="date" name="date" [(ngModel)]="data.date"  #date="ngModel" (change)="doSomething($event)" >
+                <!--[ngClass]="{ 'is-invalid': f.submitted && date.invalid }" required <div *ngIf="f.submitted && date.invalid" class="alert alert-danger">
+                  <div *ngIf="date.errors.required">Date is required</div>
+                </div> -->
+              </div>
+              <div class="form-group">
+                <label class="control-label">Safari Time:</label><br/>
+                <label>
+                  <input type="radio" name="time" [(ngModel)]="data.time" value="Morning" #time="ngModel" required>&nbsp;&nbsp;Morning</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>
+                  <input type="radio" name="time" [(ngModel)]="data.time" value="Evening" #time="ngModel" required >&nbsp;&nbsp;Evening</label>
+                  <div *ngIf="f.submitted && time.invalid" class="alert alert-danger">
+                    <div *ngIf="time.errors.required">Time is required</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label">Safari Zone:</label><br/>
+                <label>
+                  <input type="radio" name="zone" value="1/2/3/4/5/6" [(ngModel)]="data.zone" #zone="ngModel" required>&nbsp;&nbsp;1/2/3/4/5/6</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>
+                  <input type="radio" name="zone" value="7/8/9/10" [(ngModel)]="data.zone" #zone="ngModel" required>&nbsp;&nbsp;7/8/9/10</label>
+                  <div *ngIf="f.submitted && zone.invalid" class="alert alert-danger">
+                    <div *ngIf="zone.errors.required">Zone is required</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label">Safari Vehicle:</label><br/>
+                <label>
+                  <input type="radio" name="vehicle" value="Jeep" [(ngModel)]="data.vehicle" #vehicle="ngModel" required>&nbsp;&nbsp;Jeep</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>
+                  <input type="radio" name="vehicle" value="Canter" [(ngModel)]="data.vehicle" #vehicle="ngModel" required>&nbsp;&nbsp;Canter</label>
+                  <div *ngIf="f.submitted && vehicle.invalid" class="alert alert-danger">
+                    <div *ngIf="vehicle.errors.required">Vehicle is required</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label">Number of Person:</label>
+                <input type="text" class="form-control" id="no_of_person" name="no_of_person" placeholder="Enter Number of Person" [(ngModel)]="data.no_of_person" #no_of_person="ngModel" [ngClass]="{ 'is-invalid': f.submitted && no_of_person.invalid }" required>
+                <div *ngIf="f.submitted && no_of_person.invalid" class="alert alert-danger">
+                  <div *ngIf="no_of_person.errors.required">Number of Person is required</div>
+                </div>
+              </div>
+              <div class="form-group text-center">
+                <input type="submit" value="Submit" class="btn btn-primary">
+              </div>
+            </form>
+          </div>
+           
+        </div>
+     </div>
+  </div>
+
+</div>
+
+
+
+
+
+<div class="blogsection">
+  <div class="container">
+    <h2>Latest News & Blog - Ranthambore Jungle Safari</h2>
+
+    <div class="row">
+      <div class="col-sm-4 col-xs-12">
+        <a href="https://blog.ranthamboretigerreserve.in/some-important-questions-of-ranthambhore-national-park/">
+        <div class="blog">
+          <div class="blogimage">
+            <img src="assets/image/15.jpg" alt="Gir Safari Booking" class="img-responsive">
+            <div class="news-date">07<span class="month">Oct</span></div>
+          </div>
+          <div class="headingtitle">SOME IMPORTANT QUESTIONS OF RANTHAMBHORE NATIONAL PARK</div>
+          <p>Which time safari is better for spotting tigers – morning or evening? Ans- Spotting tigers in the national park is all dependent on luck. Knowledge about the tiger’s route is very important.</p>
+          <a href="https://blog.ranthamboretigerreserve.in/some-important-questions-of-ranthambhore-national-park/" class="btn btn-default">Read More...</a>
+        </div>
+        </a>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <a href="https://blog.ranthamboretigerreserve.in/trip-to-ranthambhore-national-park/">
+        <div class="blog">
+          <div class="blogimage">
+            <img src="assets/image/14.jpg" alt="Gir Safari Booking" class="img-responsive">
+            <div class="news-date">06<span class="month">Oct</span></div>
+          </div>
+          <div class="headingtitle">TRIP TO RANTHAMBHORE NATIONAL PARK</div>
+          <p>If you are a wild life lover and wishing to know more about them then you must have a visit at Ranthambore National Park A land of tigers in their natural habitat is worth visiting.</p>
+          <a href="https://blog.ranthamboretigerreserve.in/trip-to-ranthambhore-national-park/" class="btn btn-default">Read More...</a>
+        </div>
+      </a>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+         <a href="https://blog.ranthamboretigerreserve.in/ways-to-ranthambhore-national-park/">
+        <div class="blog">
+          <div class="blogimage">
+            <img src="assets/image/13.jpg" alt="Gir Safari Booking" class="img-responsive">
+            <div class="news-date">04<span class="month">Oct</span></div>
+          </div>
+          <div class="headingtitle">WAYS TO RANTHAMBHORE NATIONAL PARK</div>
+          <p>If you are willing to see nature at its best, Wild animals in their natural habitat and tigers roaming freely all around then come to RANTHAMBHORE NATIONAL PARK.</p>
+          <a href="https://blog.ranthamboretigerreserve.in/ways-to-ranthambhore-national-park/" class="btn btn-default">Read More...</a>
+        </div>
+      </a>
+      </div>
+
+    </div>
+
+    <a href="https://blog.ranthamboretigerreserve.in/" target="_blank" class="btn btn-secondary">View More...</a>
+  </div>
+
+
+</div>
+
+
+
+ <app-footer></app-footer>
+
+ 

@@ -1,0 +1,7 @@
+label {
+  font-weight: 400 !important;
+}
+
+.alert-danger {
+  line-height: 0.1 !important;
+}

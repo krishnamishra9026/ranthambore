@@ -1,0 +1,17 @@
+.btn-small-grey {
+	margin-top: 15px;
+	cursor: auto;
+}
+
+.form-group {
+	textarea {
+		&.textlong {
+			height: 160px;
+		}
+	}
+}
+
+.btn-green {
+	display: block;
+	margin: auto;
+}

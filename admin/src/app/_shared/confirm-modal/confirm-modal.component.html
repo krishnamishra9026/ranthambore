@@ -1,0 +1,36 @@
+<!-- <div class="modal-body text-center">
+  <p>{{message}}</p>
+  <button type="button" class="btn btn-default mr-2" (click)="confirm()" >Yes</button>
+  <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+</div> -->
+<div class="modal-content-inner">
+    <div class="row">
+      <div class="col-lg-6 mx-auto confirm-modal-col ">
+        <div class="modal-header px-0 pb-2">
+          <div class="title-row py-0 px-0">
+            <div class="inner-page-title" [innerHTML]="title"></div>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-12"><p [innerHTML]="message"></p></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 mt-2">
+              <button
+                type="button"
+                class="btn btn-default mr-2"
+                (click)="confirm()"
+              >
+                Yes
+              </button>
+              <button type="button" class="btn btn-primary" (click)="decline()">
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

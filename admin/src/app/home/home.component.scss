@@ -1,0 +1,58 @@
+// .signup-form-cnt {
+// 	.tab-pane {
+// 		min-height: 434px;
+// 		position: relative;
+
+// 		@media screen and (max-width: 1400px) {
+// 			min-height: 316px;
+// 		}
+
+// 		.btn-cmn {
+// 			&.btn-full-width {
+// 				position: absolute;
+// 				bottom: 0;
+// 			}
+// 		}
+// 	}
+// }
+.left {
+	background: grey;
+}
+
+.right {
+	background: black;
+}
+
+.main-wrapper {
+	height: 100vh;
+}
+
+.section {
+	height: 99%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	// background: url(ttps://lipstickshoesandmore.net/wp-content/uploads/2017/02/3-girls-shopping-clipart.jpg) no-repeat
+	// 	left top;
+	//background: url('../../assets/images/home-banner-2.jpg') center no-repeat;
+	background-size: cover;
+}
+
+.login-btn-mrgn {
+	margin-left: 86%;
+	margin-bottom: 41%;
+	position: relative;
+	z-index: 100;
+}
+
+.half {
+	background: #f9f9f9;
+	height: 50%;
+	width: 100%;
+	margin: 15px 0;
+}
+
+h4 {
+	color: white;
+}

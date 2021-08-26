@@ -1,0 +1,215 @@
+<app-header></app-header>
+<section id="sectiontwo">
+  <div class="container-fluid">
+    <div class="passanger">
+      
+      <form class="form-inline" [formGroup]="CustomerDetailsForm" (submit)="SaveData()">  
+        <div class="box clearfix">
+          <input type="hidden" name="booking_type" value="">
+          <div id="divRightPanel" class="booking_dbar">
+            <div class="title-header roboto_condensedregular">
+              <h2>
+              Booking Details
+              <span id="lblLocation" class="tab_field"></span>
+              </h2>
+            </div>
+   
+          </div>
+          <div class="Booking-Person-Details title-header roboto_condensedregular">
+          <!-- <h3>Booking Person Details : </h3> --></div>
+           <div class="row" style="margin-top:5px; margin-left: 1px; margin-bottom: 5px;">
+            <!-- <div class="col-md-1"></div> -->
+              <div class="col-sm-6"><label>Booking Name : </label> <span style="margin-left: 3px;" >{{ booking_name }} </span> </div>
+              <div class="col-sm-6"><label>Booking Option : </label> <span style="margin-left: 3px;" > {{ booking_option }} </span> </div>
+              
+            </div>
+
+          <span id="lblErrorMessage" style="color:Red;font-weight:bold;"></span>
+          <div class="row" class="topform">
+           <div class="col-sm-6">
+              <div class="">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <label class="control-label">Name:<br></label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input  formControlName="name" placeholder="Name.." class="form-control" tabindex="1" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" required="required" type="text" >
+                    <div *ngIf="submitted && f.name.errors" class="alert alert-danger">
+                      <div *ngIf="f.name.errors.required" class="text-danger">Name is required</div>
+                    </div>
+                  </div>
+                </div>
+              </div>             
+            </div>
+
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-4">
+                  <label class="control-label">Mobile No.:<br><br></label>
+                </div>
+                <div class="col-sm-8">
+                  <input placeholder="Mobile No." formControlName="mobile" tabindex="2" ng-minlength="9" required="required" type="number" id="mobile" class="form-control">
+                  <div *ngIf="submitted && f.mobile.errors" class="alert alert-danger">
+                    <div *ngIf="f.mobile.errors.required" class="text-danger">Mobile is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+             <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-4">
+                  <label class="control-label">Email ID:</label>
+                </div>
+                <div class="col-sm-8">
+                  <input placeholder="Email ID" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required="required"  tabindex="3" type="email" maxlength="100" id="email" class="form-control">
+                  <div *ngIf="submitted && f.email.errors" class="alert alert-danger">
+                    <div *ngIf="f.email.errors.required" class="text-danger">Email is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-4">
+                  <label class="control-label">Id Proof No.(Adhar/pan/dl):</label>
+                </div>
+                <div class="col-sm-8">
+                  <input placeholder="Id Proof No." formControlName="id_proof_no" tabindex="2" ng-minlength="9" required="required" type="text" id="id_proof_no" class="form-control">
+                  <div *ngIf="submitted && f.id_proof_no.errors" class="alert alert-danger">
+                    <div *ngIf="f.id_proof_no.errors.required" class="text-danger">Id Proof No. is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-4">
+                  <label class="control-label">NO. of Persons Indian:</label>
+                </div>
+                <div class="col-sm-8">
+                  <input placeholder="NO. of Persons Indian"  value="1" formControlName="no_of_persons_indian" tabindex="2"  min="0" max="50" ng-minlength="9" required="required" type="number" id="no_of_persons_indian" class="form-control">
+                  <div *ngIf="submitted && f.no_of_persons_indian.errors" class="alert alert-danger">
+                    <div *ngIf="f.no_of_persons_indian.errors.required" class="text-danger">Persons indian is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-4">
+                  <label class="control-label">NO. of Persons Foreigner:</label>
+                </div>
+                <div class="col-sm-8">
+                  <input  min="0" max="50"  value="1" placeholder="NO. of Persons Foreigner" formControlName="no_of_persons_foreigner" tabindex="2" ng-minlength="9" required="required" type="number" id="no_of_persons_foreigner" class="form-control">
+                  <div *ngIf="submitted && f.no_of_persons_foreigner.errors" class="alert alert-danger">
+                    <div *ngIf="f.no_of_persons_foreigner.errors.required" class="text-danger">Persons foreigner is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-4">
+                  <label class="control-label">Select Safari Date:</label>
+                </div>
+                <div class="col-sm-8">
+                  <input placeholder="Date" type="date" formControlName="safari_date" tabindex="2" required="required" id="safari_date" class="form-control">
+                  <div *ngIf="submitted && f.safari_date.errors" class="alert alert-danger">
+                    <div *ngIf="f.safari_date.errors.required" class="text-danger">Date is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-4">
+                  <label class="control-label">Select Safari Time:</label>
+                </div>
+                <div class="col-sm-8">
+                  <select placeholder="Safari Time" formControlName="safari_time" style="min-width: 100%;" tabindex="2" id="safari_time" class="form-control"  required="required">
+                    <option value="">Please select Time</option>
+                    <option value="8:00 am to 9:00 am">8:00 am to 9:00 am</option>
+                    <option value="9:00 am to 10:00 am">9:00 am to 10:00 am</option>
+                    <option value="10:00 am to 11:00 am">10:00 am to 11:00 am</option>
+                    <option value="11:00 am to 12:00 pm">11:00 am to 12:00 pm</option>
+                    <option value="12:00 pm to 01:00 pm">12:00 pm to 01:00 pm</option>
+                    <option value="01:00 pm to 02:00 pm">01:00 pm to 02:00 pm</option>
+                    <option value="02:00 pm to 03:00 pm">02:00 pm to 03:00 pm</option>
+                    <option value="03:00 pm to 04:00 pm">03:00 pm to 04:00 pm</option>
+                    <option value="04:00 pm to 05:00 pm">04:00 pm to 05:00 pm</option>
+                    <option value="05:00 pm to 06:00 pm">05:00 pm to 06:00 pm</option>
+
+                  </select>
+                  <div *ngIf="submitted && f.safari_time.errors" class="alert alert-danger">
+                    <div *ngIf="f.safari_time.errors.required" class="text-danger">Safari Time is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          
+            
+           
+            <br class="hidden-xs">
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-sm-12 padding-left-zero mobpad0">
+                  <label class="control-label labelMargin">Address:</label>
+                </div>
+                <div class="col-sm-12 padding-left-zero mobpad0">
+                  <textarea placeholder="Full Address.." formControlName="address" tabindex="4" required="required" rows="4" cols="60" id="address" class="form-control"></textarea>
+                  <div *ngIf="submitted && f.address.errors" class="alert alert-danger">
+                    <div *ngIf="f.address.errors.required" class="text-danger">Address is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+          </div>
+        </div>
+
+        <div class="row col-md-12">
+          <div class="col-md-2"></div>
+          <div class="col-md-6">
+          <p><b>Note:</b></p>
+          <p># Visitors have to report 30 min before at Palighat chambal</p>
+          <p># Safari amount is non refundable</p>
+          <p># Online booking is compulsory for Chambal safari</p>
+          <p># Below 5 Year Child is complimentary (After 5 Year charges will be applicable)</p>
+          <p># safari will be conducted by motor boat</p>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+          <br>
+          <br>
+          <br>
+          <p><b> {{ no_persons }} Persons : </b> {{ no_persons_price }} INR</p>
+          <!-- <p><b> Pickup and Drop : </b> {{ pickup_drop }} INR</p> -->
+          <p><b> GST : </b> {{ gst }} INR</p>
+        </div>
+        </div>
+        <div class="formsection">
+          <div class="text-center paynow">
+            <ul class="list-inline">
+              <li class="paybtn">Payable Amount : <input formControlName="amount" id="booking_amount" type="hidden" value="{{ nCnt }}"><span id="amount">{{ nCnt }}</span></li>
+              <li><button type="submit"  class="btn btn-primary">Pay Now</button></li>
+              <li><a href="/cambal-safari" style="margin-bottom: 3px; height: 43px;"  class="btn btn-default" >Go Back</a></li>
+            </ul>
+          </div>
+        </div>
+        
+      </form>
+
+    </div>
+  </div>
+</section> 
+<app-footer></app-footer>

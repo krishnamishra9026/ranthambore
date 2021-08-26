@@ -1,0 +1,135 @@
+<div class="row">
+  <div class="col-lg-12 col-md-12 mb-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-pencil"></i> {{ type | titlecase }} Settings
+        <div class="pull-right">
+          <button
+            class="btn btn-primary"
+            (click)="updateSetting()"
+            ngbTooltip="Save"
+          >
+            <i class="fa fa-floppy-o"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+        <form
+          #typeForm="ngForm"
+          class="form-horizontal"
+          (ngSubmit)="updateSetting()"
+          novalidate
+          autocomplete="off"
+        >
+          <div class="form-horizontal" *ngIf="typeSettings.length">
+            <div
+              class="form-group row"
+              *ngFor="let setting of typeSettings; let index = index"
+            >
+              <label class="col-sm-2 form-control-label text-sm-right mt-1">{{
+                setting.description
+              }}</label>
+              <div class="col-sm-10" [ngSwitch]="setting.displayType">
+                <ng-container *ngSwitchCase="'text'">
+                  <input
+                    type="text"
+                    name="text-{{setting.id}}"
+                    [ngClass]="{ 'validation-field': isSubmitted }"
+                    [(ngModel)]="setting.value"
+                    class="form-control"
+                    maxlength="50"
+                    [required]="true"
+                    [placeholder]="setting.placeholder"
+                  />
+                </ng-container>
+                <ng-container *ngSwitchCase="'textarea'">
+                  <textarea
+                    rows="5"
+                    name="textarea-{{setting.id}}"
+                    [ngClass]="{ 'validation-field': isSubmitted }"
+                    [(ngModel)]="setting.value"
+                    class="form-control"
+                    maxlength="500"
+                    [required]="true"
+                    [placeholder]="setting.placeholder"
+                  ></textarea>
+                </ng-container>
+                <ng-container *ngSwitchCase="'select'"
+                  >test
+                  <ng-select
+                    [items]="setting.sourceValues"
+                    bindLabel="name"
+                    bindValue="id"
+                    placeholder="Select test"
+                    [(ngModel)]="setting.selected"
+                    [ngClass]="{ 'validation-field': isSubmitted }"
+                    [ngModelOptions]="{ standalone: true }"
+                  >
+                  </ng-select>
+                </ng-container>
+                <ng-container *ngSwitchCase="'multiselect'">
+                  <ng-select
+                    [items]="setting.sourceValues"
+                    bindLabel="name"
+                    bindValue="id"
+                    placeholder="Select test"
+                    [(ngModel)]="setting.selected"
+                    [ngClass]="{ 'validation-field': isSubmitted }"
+                    name="multiselect{{setting.id}}"
+                    [ngModelOptions]="{ standalone: true }"
+                  ></ng-select>
+                </ng-container>
+                <ng-container *ngSwitchCase="'radio'">
+                  <label
+                    class="col-sm-12 custom-control custom-radio"
+                    *ngFor="let value of setting.sourceValues"
+                  >
+                    <input
+                      type="radio"
+                      name="stacked-radio"
+                      class="custom-control-input radio-primary"
+                      name="radio-{{setting.id}}"
+                      (change)="setting.selected = [value.value]"
+                      [checked]="
+                        setting.selected &&
+                        setting.selected.indexOf(value.value) > -1
+                      "
+                    />
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">{{
+                      value.name
+                    }}</span>
+                  </label>
+                </ng-container>
+                <ng-container *ngSwitchCase="'checkbox'">
+                  <label
+                    class="col-sm-12 custom-control custom-checkbox"
+                    *ngFor="let value of setting.sourceValues"
+                  >
+                    <input
+                      class="custom-control-input checkbox-primary"
+                      name="checkbox-{{setting.id}}"
+                      (change)="checkboxChange(setting, value.value)"
+                      type="checkbox"
+                      [ngClass]="{ 'validation-field': isSubmitted }"
+                      [checked]="
+                        setting.selected &&
+                        setting.selected.indexOf(value.value) > -1
+                      "
+                    />
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description align-middle">{{
+                      value.name
+                    }}</span>
+                  </label>
+                </ng-container>
+                <ng-container *ngSwitchDefault></ng-container>
+              </div>
+            </div>
+          </div>
+          <button type="submit" #btnSubmit [hidden]="true"></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

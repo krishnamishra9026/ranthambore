@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row title-row">
+    <div class="col-lg-12">
+      <div class="inner-page-title header">Roles</div>
+    </div>
+  </div>
+  <div class="row filter-row">
+    <div class="col-md-12" *ngIf="roles && roles.length">
+      <div class="pull-right">
+        <button class="btn btn-outline-gray cursor-pointor mr-1" type="button" (click)="refreshList()"
+          tooltip="Refresh">
+          <i class="fa fa-refresh"></i>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-12" *ngIf="!roles || !roles.length">
+      <div class="pull-right">
+        <button class="btn btn-outline-gray cursor-pointor mr-1" type="button" (click)="refreshList()"
+          tooltip="Refresh">
+          <i class="fa fa-refresh"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-0">
+    <div class="col-lg-12 col-md-12 mb-12">
+      <ngx-datatable #table class="material" [headerHeight]="40" [limit]="10" [columnMode]="'flex'" [footerHeight]="50"
+        [rowHeight]="'auto'" [rows]="roles">
+        <ngx-datatable-column name="Name" prop="name" [flexGrow]="12" cellClass="text-truncate">
+          <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+            <span>{{ value }}</span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name=" " [width]="25" [flexGrow]="2">
+          <ng-template ngx-datatable-cell-template let-row="row">
+            <div class="edit-icon-sec">
+              <a (click)="update(row.id)" tooltip="Edit" *ngIf="row.slug!=='super_admin'" [adaptivePosition]="false"><i
+                  class="fa fa-edit fa-lg"></i></a>
+            </div>
+          </ng-template>
+        </ngx-datatable-column>
+
+      </ngx-datatable>
+      <div class="no-data-found" *ngIf="!roles || !roles.length">
+        <div class="no-data-found-sec"><i><img alt="" src="assets/images/norecord-img.png"></i><span>No data for
+            listing</span></div>
+      </div>
+    </div>
+  </div>
+</div>

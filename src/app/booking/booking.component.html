@@ -1,0 +1,181 @@
+<app-header></app-header>
+<section id="sectiontwo">
+  <div class="container-fluid">
+    <div class="passanger">
+      
+      <form class="form-inline" [formGroup]="CustomerDetailsForm" (submit)="SaveData()">  
+        <div class="box clearfix">
+          <input type="hidden" name="booking_type" value="">
+          <div id="divRightPanel" class="booking_dbar">
+            <div class="title-header roboto_condensedregular">
+              <h2>
+              Booking Detail:
+              <span id="lblLocation" class="tab_field"></span>
+              </h2>
+            </div>
+   
+          </div>
+          <div class="Booking-Person-Details title-header roboto_condensedregular">
+          <h3>Booking Person Details</h3></div>
+           <div class="row" style="margin-left: 5px;">
+              <div class="col-sm-3"><label>Booking Date : </label> <span style="margin-left: 3px;" id="bookingDate"> {{ date_val }} </span> </div>
+              <div *ngIf="showZone1" class="col-sm-3"><label>Booking Zone : </label> <span style="margin-left: 3px;" id="bookingZone"> Zone 1/2/3/4/5/6/7 </span> </div>
+              <div *ngIf="showZone2" class="col-sm-3"><label>Booking Zone : </label> <span style="margin-left: 3px;" id="bookingZone"> Zone 8/9/10 </span> </div>
+               <div *ngIf="showZone" class="col-sm-3"><label>Booking Zone : </label> <span style="margin-left: 3px;" id="bookingZone"> </span> </div>
+              <div class="col-sm-3"><label>Booking Timing : </label> <span style="margin-left: 3px;" id="bookingTiming"> {{ timing_val }} </span> </div>
+              <div class="col-sm-3"><label>Booking Vehicle : </label> <span style="margin-left: 3px;" id="bookingVehicle"> {{ vehicle_val }} </span> </div> 
+              <div><br><br></div>          
+            </div>
+          <span id="lblErrorMessage" style="color:Red;font-weight:bold;"></span>
+          <div class="row" class="topform">
+           <div class="col-sm-4">
+              <div class="">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label class="control-label">Name:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input  formControlName="name" placeholder="Name.." class="form-control" tabindex="1" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" required="required" type="text" >
+                    <div *ngIf="submitted && f.name.errors" class="alert alert-danger">
+                      <div *ngIf="f.name.errors.required" class="text-danger">name is required</div>
+                    </div>
+                    <input type="hidden" formControlName="date" id="booking_date" >
+                    <input type="hidden" formControlName="zone" id="booking_zone" >
+                    <input type="hidden" formControlName="timing" id="booking_timing" >
+                    <input type="hidden" formControlName="vehicle" id="booking_vehicle" >
+                  </div>
+                </div>
+              </div>             
+            </div>
+
+            <div class="col-sm-4">
+              <div class="row">
+                <div class="col-sm-4">
+                  <label class="control-label">Mobile No.:</label>
+                </div>
+                <div class="col-sm-8">
+                  <input placeholder="Mobile No." formControlName="mobile" tabindex="2" ng-minlength="9" required="required" type="number" id="mobile" class="form-control">
+                  <div *ngIf="submitted && f.mobile.errors" class="alert alert-danger">
+                    <div *ngIf="f.mobile.errors.required" class="text-danger">mobile is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-sm-4">
+              <div class="row">
+                <div class="col-sm-4">
+                  <label class="control-label">Email ID:</label>
+                </div>
+                <div class="col-sm-8">
+                  <input placeholder="Email ID" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required="required"  tabindex="3" type="email" maxlength="100" id="email" class="form-control">
+                  <div *ngIf="submitted && f.email.errors" class="alert alert-danger">
+                    <div *ngIf="f.email.errors.required" class="text-danger">Email is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br class="hidden-xs">
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-sm-12 padding-left-zero mobpad0">
+                  <label class="control-label labelMargin">Full Address:</label>
+                </div>
+                <div class="col-sm-12 padding-left-zero mobpad0">
+                  <textarea placeholder="Full Address.." formControlName="address" tabindex="4" required="required" rows="4" cols="60" id="address" class="form-control"></textarea>
+                  <div *ngIf="submitted && f.address.errors" class="alert alert-danger">
+                    <div *ngIf="f.address.errors.required" class="text-danger">address is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+          </div>
+        </div>
+
+        <!-- kkk -->
+        <br>
+        <h2 class="mb20">Please fill out the Traveller Details</h2>
+        <div class="formsection" formArrayName="booked_persons">     
+          
+            
+
+          <div  *ngFor="let item of CustomerDetailsForm.controls.booked_persons['controls']; let pointIndex=index"  class="form-group" [formGroupName]="pointIndex"><span class="serailno">{{pointIndex+1}}.</span>
+          
+            <div class="form-group required mob6">
+              <input type="text" formControlName="name" placeholder="Full Name" class="form-control" value="" [ngClass]="{ 'is-invalid': submitted && CustomerDetailsForm.controls.booked_persons['controls'][pointIndex].controls.name.errors }" required="required">
+
+              <div *ngIf="submitted && CustomerDetailsForm.controls.booked_persons['controls'][pointIndex].controls.name.errors" class="alert alert-danger">
+                <div class="text-danger">Full Name is required</div>
+              </div>
+            </div>
+        
+            <div class="form-group required mob6">
+              <select class="form-control biginput" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && CustomerDetailsForm.controls.booked_persons['controls'][pointIndex].controls.gender.errors }" required="required">
+                <option selected disabled value="">Please Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <div *ngIf="submitted && CustomerDetailsForm.controls.booked_persons['controls'][pointIndex].controls.gender.errors" class="alert alert-danger">
+                <div class="text-danger">Gender is required</div>
+              </div>
+            </div>
+
+            <div class="form-group required mob6">
+              <select id="nationality" formControlName="nationality" [ngClass]="{ 'is-invalid': submitted && CustomerDetailsForm.controls.booked_persons['controls'][pointIndex].controls.nationality.errors }" required="required">
+                <option selected disabled value="">Please Select Nationality</option>
+                <option value="Indian">Indian</option>
+                <option value="Foreigner">Foreigner</option>
+              </select>
+              <div *ngIf="submitted && CustomerDetailsForm.controls.booked_persons['controls'][pointIndex].controls.nationality.errors" class="alert alert-danger">
+                <div class="text-danger">Nationality is required</div>
+              </div>
+            </div>
+      
+            <div class="form-group required mob6">
+              <select class="form-control biginput" formControlName="id_proof" [ngClass]="{ 'is-invalid': submitted && CustomerDetailsForm.controls.booked_persons['controls'][pointIndex].controls.id_proof.errors }" required="required">
+                <option selected disabled value="">Please Select ID Proof</option>
+                <option value="Aadhar Card">Aadhar Card</option>
+                <option value="Voter ID">Voter ID</option>
+                <option value="Driving Licence">Driving Licence</option>
+                <option value="Passport">Passport</option>
+              </select>
+              <div *ngIf="submitted && CustomerDetailsForm.controls.booked_persons['controls'][pointIndex].controls.id_proof.errors" class="alert alert-danger">
+                <div class="text-danger">Id Proof is required</div>
+              </div>
+            </div>
+            <div class="form-group required idarea">
+              <input type="text" formControlName="idnumber" placeholder="ID Number" class="form-control" value="" [ngClass]="{ 'is-invalid': submitted && CustomerDetailsForm.controls.booked_persons['controls'][pointIndex].controls.idnumber.errors }" required="required">
+               <div *ngIf="submitted && CustomerDetailsForm.controls.booked_persons['controls'][pointIndex].controls.idnumber.errors" class="alert alert-danger">
+                <div class="text-danger">Id Number is required</div>
+              </div>
+            </div>            
+
+            <div class="form-group mob6" *ngIf="pointIndex">
+              <button class="deletePerson btn btn-danger" type="button" (click)="deleteBookingPerson(pointIndex)"><i class="fa fa-times hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xl">Remove Traveller</span></button>
+            </div>
+             <div class="form-group mob6">
+               <button type="button" class="addperson btn btn-primary" (click)="addBookingPerson()"><i class="fa fa-plus hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xl">Add Traveller</span></button>
+             </div>
+           <br class="hidden-xs">
+           <br class="hidden-xs">
+          </div>
+        </div>
+        <div><p style="text-align: center;">Note: Final Payment Includes extra 2% of payable amount as Convenience Fee.</p></div>
+        <div class="formsection">
+          <div class="text-center paynow">
+            <ul class="list-inline">
+              <li class="paybtn">Payable amount : <input formControlName="amount" id="booking_amount" type="hidden" value="{{ nCnt }}"> <span id="amount">{{ nCnt }}</span></li>
+              <li><button type="submit"  class="btn btn-primary">Pay Now</button></li>
+              <li><a  class="btn btn-default" id="go-back" >Go Back</a></li>
+            </ul>
+          </div>
+        </div>
+        
+      </form>
+
+    </div>
+  </div>
+</section> 
+<app-footer></app-footer>

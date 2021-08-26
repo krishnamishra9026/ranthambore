@@ -1,0 +1,96 @@
+<div class="modal-header">
+    <div class="title-row py-0">
+      <div class="inner-page-title">Manage FAQ</div>
+    </div>
+    <button
+      type="button"
+      class="pull-right btn-close-popup"
+      aria-label="Close"
+      (click)="close()"
+    >
+      <i class="ic-close"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row home-reg-form width-auto">
+        <form
+        autocomplete="off"
+        name="faqForm"
+        [formGroup]="faqForm"
+        (ngSubmit)="save(faqForm)"
+        novalidate
+      >
+        <div class="col-lg-6 mx-auto">
+          <div class="row mt-1">
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label for="name" class="form-label">Question</label>
+                <textarea formControlName="question" class="form-control"
+                name="question" maxlength="140" required></textarea>
+                <div
+                  class="validation-error"
+                  *ngIf="
+                    submitted &&
+                    faqForm.get('question').errors &&
+                    faqForm.get('question').errors.required
+                  "
+                >
+                Question is required
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="name" class="form-label">Answer</label>
+                  <textarea formControlName="answer" class="form-control"
+                  name="answer" maxlength="140" required></textarea>
+                  <div
+                    class="validation-error"
+                    *ngIf="
+                      submitted &&
+                      faqForm.get('answer').errors &&
+                      faqForm.get('answer').errors.required
+                    "
+                  >
+                  Answer is required
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="row mt-1">
+              <div class="col-lg-6">
+                  <div class="form-group">
+                      <label for="name" class="form-label">Seq No</label>
+                      <input formControlName="seq_no" name="seq_no" class="form-control"
+                       placeholder="Seq No" [appNumberOnly]="3"
+                      type="text"/>
+                      <div
+                        class="validation-error"
+                        *ngIf="
+                          submitted &&
+                          faqForm.get('seq_no').errors &&
+                          faqForm.get('seq_no').errors.required
+                        "
+                      >
+                      Seq No is required
+                      </div>
+                    </div>
+                </div>
+              <div class="col-lg-6">
+                  <div class="form-group">
+                      <p class="card-text form-check mt-5">
+                          <label class="form-check-label">Active
+                              <input type="checkbox" formControlName="active" checked="manageBrandForm.get('active').value === true">
+                              <span class="checkmark"></span>
+                          </label>
+                      </p>
+                    </div>
+                </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <button type="submit" class="btn-cmn btn-green mt-1">Save</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

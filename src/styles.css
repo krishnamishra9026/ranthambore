@@ -1,0 +1,672 @@
+/*@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';*/
+body{
+  color: #000;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+h1,h2,h3,h4,h5,h6{
+  color: #000;
+  font-family: 'Open Sans', sans-serif;
+}
+#myModal .modal-header {
+    padding: 0;
+    border-bottom: none;
+    background: #c72208;
+    text-align: center;
+    color: #fff;
+    padding: 11px 0px;
+}
+#myModal .modal-header .close{
+  opacity: 1;
+    color: #fff;
+    text-shadow: none;
+    margin-right: 10px;
+}
+.menu{
+  padding-top: 15px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.menu li{
+  margin-bottom: 17px;
+}
+.logo{
+  padding-top: 0px;
+}
+.padding-right-zero{
+  padding-right: 0;
+}
+.bookpanel h1{
+  font-weight: 600;
+}
+.font17{
+  font-size: 18px;
+  margin-top: 20px;
+}
+#calendar{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.selectdesign{
+  border: 1px solid #98a3ae;
+  background: #f5f5f5;
+  padding: 4px 10px;
+  margin-bottom: 15px;
+}
+.selectdesign select{
+  border: none;
+  box-shadow: none;
+  background: #f5f5f5;
+  border-radius: 0;
+  color: #98a3ae;
+  font-weight: 600;
+}
+.btn{
+  padding: 9px 25px;
+  font-size: 18px;
+}
+.btn-primary{
+  background-color: #000;
+  border-color: #000;
+  border-radius: 0;
+  box-shadow: none;
+}
+.btn-primary:hover{
+  background-color: #6ea32b;
+  border-color: #6ea32b;
+}
+.booknowbtn button{
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.form-control:focus{
+  box-shadow: none;
+  background-color: transparent;
+}
+.padding-right-five{
+  padding-right: 5px;
+}
+.padding-left-five{
+  padding-left: 5px;
+}
+.callus{
+  padding-top: 10px;
+  float: right;
+}
+.callus li{
+  line-height: 24px;
+}
+.callus li a{
+  color: #000;
+  text-decoration: none;
+  font-size: 15px;
+}
+#sectiontwo header{
+  background: #f8f8f8;
+}
+#sectiontwo header .logo{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#sectiontwo form .form-group{
+  padding: 0 6px;
+}
+#sectiontwo form input, #sectiontwo form select{
+  background: #f5f7fa;
+  color: #98a3ae;
+  max-width: 190px;
+  height: 45px;
+  font-size: 15px;
+}
+.passanger h2{
+  text-align: center;
+  font-weight: 600;
+  padding-top: 10px;
+  margin: 0;
+  padding-bottom: 10px;
+  color: #fff;
+  background: #000;
+  font-size: 24px;
+}
+.biginput{
+  min-width: 180px;
+}
+.ageinput{
+  max-width: 70px !important;
+}
+.serailno{
+  font-size: 15px;
+  font-weight: 600;
+  min-width: 40px;
+  display: inline-block;
+  padding-left: 10px;
+  background: #333;
+  color: #fff;
+  border-radius: 100px;
+  padding: 10px 14px;
+  margin-right: 11px;
+}
+.passanger form{
+  border: 1px solid #ddd;
+  padding: 0px;
+  max-width: 1178px;
+  margin: 0 auto;
+  padding-top: 0;
+}
+.formsection{
+  margin-bottom: 20px;
+}
+.panelpadding{
+  padding: 0 20px;
+}
+.btn-default{
+  background: #eb903b;
+  border-color: #eb903b;
+  color: #fff;
+  border-radius: 0;
+  box-shadow: none;
+}
+.btn-default:hover{
+  background: #f5f7fa;
+  border-color: #ccc;
+  color: #000;
+}
+.information h2{
+  font-weight: 600;
+  text-align: center;
+  padding-top: 50px;
+}
+.special{
+  font-size: 20px;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 80%;
+  font-weight: 300;
+  line-height: 35px;
+}
+.information h3{
+  text-align: center;
+  font-weight: 600;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+.information .caption{
+  text-align: center;
+  background: rgba(0,0,0,0.5);
+  position: relative;
+  top: -60px;
+  color: #fff;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 20px 0;
+}
+footer{
+  background: #ccc;
+  color: #000;
+}
+footer li{
+  color: #000;
+}
+footer a{
+  color: #000;
+}
+footer a:hover{
+  text-decoration: none;
+  color: #ff0000;
+}
+footer p{
+  margin-bottom: 0;
+}
+footer ul{
+  margin-bottom: 0;
+}
+.footertop{
+  background: #ddd;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  text-align: center;
+}
+.footertop ul{
+  margin-bottom: 0;
+}
+.margin0{
+  margin-right: 0;
+}
+.headtop{
+  background: #ddd;
+  display: block;
+  padding: 6px 8px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.timetable ul li{
+  line-height: 32px;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  position: relative;
+  left: 3px;
+}
+.timetable ul li span{
+}
+.padding-left-zero{
+  padding-left: 0;
+}
+.padding-right-zero{
+  padding-right: 0;
+}
+.tableMonths{
+  border-right: 1px solid #ddd;
+}
+.timetable{
+  border: 1px solid #ddd;
+  max-width: 600px;
+  margin-top: 10px;
+}
+.timetable ul{
+  margin-bottom: 0;
+}
+.topform input{
+  max-width: unset !important;
+  width: 100% !important;
+}
+.topform textarea.form-control {
+  height: 60px;
+  width: 100% !important;
+}
+.labelMargin{
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+.topform .form-inline .control-label{
+  margin-top: 15px;
+}
+.passanger{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.passanger h3{
+  margin-bottom: 20px;
+  padding-left: 15px;
+}
+.form-inline .control-label{
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.mb20{
+  margin-bottom: 20px !important;
+}
+.addperson{
+  border-radius: 100px;
+  padding: 6px 12px !important;
+  background: green;
+  border-color: green;
+}
+.deletePerson{
+  border-radius: 100px;
+  padding: 6px 11px !important;
+}
+/*.payable{
+margin-left: 15px;
+}
+.payable h5{
+float: left;
+background: #ce1e19;
+color: #fff;
+padding: 13px 13px;
+font-size: 18px;
+font-weight: 600;
+}
+.payable #amount{
+float: left;
+background: #ce1e19;
+color: #fff;
+padding: 12.5px;
+font-size: 18px;
+font-weight: 600;
+top: 10px;
+position: relative;
+padding-left: 0;
+left: -7px;
+}*/
+.paybtn{
+  background: #ce1511;
+  color: #fff;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 17px;
+  min-width: 220px;
+}
+.paynow li .btn-primary{
+  padding: 7px 24px;
+  position: relative;
+  top: -2px;
+  background: green;
+  border-color: green;
+}
+.col-sm-12.padding-left-zero.mobpad0 {
+  padding-left: 15px;
+}
+.menu li a{
+  background: #000;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+.menu li a:hover{
+  text-decoration: none;
+}
+.tabletabs2 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+  background-color: #337577;
+  border: 1px solid #337577;
+  color: #fff;
+}
+.tabletabs2 .nav>li>a, .nav>li>a:focus, .nav>li>a:hover {
+  text-decoration: none;
+  background-color: #c6e7e8;
+  color: #000;
+}
+.tabletabs2 .nav-tabs>li>a{
+  font-weight: 500;
+  font-size: 15px;
+}
+.tabletabs2 .nav-tabs {
+  border-bottom: none;
+  display: flex;
+  justify-content: center;
+}
+.canalList{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 10px;
+  padding-bottom: 10px;
+}
+.canalList p{
+  font-size: 16px;
+  line-height: 26px;
+}
+.canalList i{
+  background: #094492;
+  border-radius: 50%;
+  padding: 6px;
+  font-size: 8px;
+  color: #fff;
+}
+.tabletabs2 .tab-pane {
+  border: 2px solid #eee;
+  padding: 20px 10px 10px 20px;
+}
+.tabletabs{
+  margin-top: 30px;
+}
+#go-back{
+  padding: 9px 23px;
+  position: relative;
+  top: -2px;
+  font-size: 16px;
+}
+.thankyoupage h1{
+  font-weight: 700;
+  text-align: center;
+  padding-top: 150px;
+}
+.thankyoupage h3{
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ec5100;
+}
+.notes td{
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+.notes{
+  margin-top: 20px;
+    max-width: 600px;
+}
+.nbg{
+  background: #eee;
+  max-width: 30px;
+  padding: 10px !important;
+}
+header{
+  padding-top: 30px;
+}
+@media (max-width: 767px){
+.logo {
+  padding-top: 10px;
+}
+.logo img{
+  margin: 0 auto;
+}
+.callus {
+  padding-top: 0;
+  text-align: center;
+  float: none;
+}
+.timetable .col-sm-7.col-xs-6.padding-left-zero.padding-right-zero{
+  padding: 0 !important;
+}
+.timetable .col-sm-5.col-xs-6.padding-right-zero{
+  padding-right: 0 !important;
+}
+.bookpanel h1{
+  font-size: 21px;
+  text-align: center;
+  margin-bottom: 0;
+}
+.font17 {
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+.padding-right-five {
+  padding-right: 15px;
+}
+.padding-left-five {
+  padding-left: 15px;
+}
+.booknowbtn button{
+  margin-bottom: 20px;
+}
+.information .caption{
+  top: 24px;
+  font-size: 13px;
+  top: -24px;
+  padding: 2px 0;
+}
+.information h2{
+  padding-top: 0px;
+  font-size: 21px;
+}
+.special {
+  font-size: 13px;
+  text-align: justify;
+  margin: 0 auto;
+  max-width: 100%;
+  font-weight: normal;
+  line-height: 20px;
+}
+.information h3 {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-size: 21px;
+}
+footer ul{
+  text-align: center;
+  line-height: 19px;
+}
+.padding-right-zero{
+  padding-right: 15px;
+}
+.fc-header .fc-header-left{
+  width: 22%;
+}
+.fc-header-right{
+  width: 11%;
+  text-align: unset;
+}
+.fc-button{
+  padding: 0 6px;
+}
+.fc-header td{
+  padding: 10px 0px 0px;
+}
+.fc-header-title h2 {
+  font-size: 14px;
+  padding: 10px 10px;
+}
+.fc-header-center{
+  display: none;
+}
+footer .pull-right {
+  float: none;
+  text-align: center;
+}
+footer{
+  font-size: 12px;
+}
+.booknowbtn button{
+  font-size: 14px;
+}
+.passanger h2{
+  font-size: 20px;
+}
+.passanger h3 {
+  margin-bottom: 10px;
+  padding-left: 15px;
+  font-size: 16px;
+  font-weight: 600;
+}
+#sectiontwo form input, #sectiontwo form select{
+  height: 36px;
+  font-size: 13px;
+}
+.mobpad0{
+  padding-left: 15px;
+}
+.mb20{
+  font-size: 16px !important;
+}
+.serailno{
+  display: block;
+  border-radius: 0;
+  text-align: center;
+  margin-bottom: 10px;
+  background: #379be4;
+  margin-right: 0;
+  clear: both;
+}
+.biginput {
+  min-width: auto !important;
+}
+#sectiontwo form input, #sectiontwo form select{
+  max-width: 100% !important;
+}
+.addperson {
+  border-radius: 0;
+  padding: 6px 12px !important;
+  background: green;
+  border-color: green;
+  margin-top: -7px;
+  font-size: 12px;
+  margin-left: 10px;
+  width: 92%;
+  padding-left: 15px !important;
+  margin-left: 0;
+}
+.paybtn {
+  padding: 5px 30px;
+  font-size: 13px;
+}
+.paynow li .btn-primary {
+  padding: 5px 20px;
+  position: relative;
+  top: -1px;
+  font-size: 14px;
+}
+.formsection{
+  clear: both !important;
+}
+.deletePerson{
+  border-radius: 0;
+  font-size: 12px;
+  position: relative;
+  top: -7px;
+  padding: 6px 12px !important;
+  width: 100%;
+}
+.timetable ul li{
+  font-size: 14px;
+  line-height: 25px;
+}
+.mob6{
+  float: left;
+  width: 50%;
+}
+.menu{
+  display: block;
+}
+.menu li a {
+  background: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  min-width: 100px;
+  display: block;
+  line-height: 18px;
+}
+.menu li {
+    margin-bottom: 8px;
+}
+.tabletabs2 .nav-tabs{
+  display: block;
+}
+.nav-tabs > li{
+  margin-bottom: 3px;
+}
+.canalList p {
+  font-size: 14px;
+  line-height: 24px;
+}
+.tabletabs2 .tab-pane{
+  padding: 10px;
+}
+footer p{
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+}
+.tabletabs2 .nav-tabs > li > a{
+  font-size: 12px;
+}
+.noright{
+  float: none !important;
+  margin-top: 5px;
+}
+#go-back {
+  padding: 5px 18px;
+  position: relative;
+  top: 10px;
+  font-size: 13px;
+}
+.paybtn{
+  min-width: 180px;
+}
+.thankyoupage h1{
+  font-size: 18px;
+  padding-top: 30px;
+  line-height: 25px;
+}
+.thankyoupage h3{
+  font-size: 14px;
+  line-height: 20px;
+}
+.thankyoupage .btn-primary{
+  font-size: 14px;
+  padding: 8px 14px;
+}
+}

@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row title-row">
+    <div class="col-lg-12">
+      <div class="inner-page-title header">Booking prices
+       <!--  <span style="float: right;"> 
+          <form class="form-group form-inline" action="/" method="POST" encType="multipart/form-data">
+            <div class="form-control">
+              <input type="file" name="file" accept="*.csv" (change)="fileChangeEvent($event)"  />
+              <button style="margin-top: -22px; margin-right: -26px;"  (click)="upload()" type="button" class="btn btn-primary mb-2" >Import</button>
+            </div>
+          </form>
+        </span> -->
+      </div>
+    </div>
+  </div>
+  <div class="row filter-row">
+    <div class="col-md-9">
+      <div class="input-group">
+        <input class="form-control" type="text" placeholder="Serach by Name..." value=""
+          [formControl]="searchtxtControl" />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="pull-right">
+        <button *ngIf="canDelete" class="btn btn-outline-gray cursor-pointor mr-1" (click)="delete()" type="button"
+          tooltip="Delete" [disabled]="!this.booking_services.length">
+          <i class="fa fa-trash-o"></i>
+        </button>
+        <!-- <button *ngIf="canUpdate" class="btn btn-outline-gray cursor-pointor mr-1" type="button"
+          (click)="changeStatus('Active',null)" tooltip="Activate" [disabled]="!this.booking_services.length">
+          <i class="fa fa-unlock-alt"></i>
+        </button>
+        <button *ngIf="canUpdate" class="btn btn-outline-gray cursor-pointor mr-1" type="button"
+          (click)="changeStatus('In Active',null)" tooltip="In Activate" [disabled]="!this.booking_services.length">
+          <i class="fa fa-lock"></i>
+        </button> -->
+        <button class="btn btn-outline-gray cursor-pointor mr-1" type="button" (click)="refreshList()"
+          tooltip="Refresh">
+          <i class="fa fa-refresh"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-0">
+    <div class="col-lg-12 col-md-12 mb-12">
+      <ngx-datatable *ngIf="booking_services && booking_services.length > 0" #table class="material" [headerHeight]="50"
+        [columnMode]="'flex'" [footerHeight]="50" [rowHeight]="'auto'" [rows]="booking_services" [selected]="selected"
+        [selectionType]="'checkbox'" (select)="onSelect($event)" [externalPaging]="true" [count]="pageInfo.count"
+        [loadingIndicator]="gridLoadingIndicator" [offset]="pageInfo.pageNumber" [limit]="pageInfo.pageSize"
+        (page)="setPage($event)" (sort)="onSort($event)">
+        <ngx-datatable-column [width]="5" [flexGrow]="2" [sortable]="false" [canAutoResize]="false" [draggable]="true"
+          [resizeable]="false" [headerCheckboxable]="true" [checkboxable]="true">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Name" [width]="35" [flexGrow]="3" cellClass="text-truncate">
+          <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+            <span>{{ value }}</span>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="price" [width]="25" [flexGrow]="2" cellClass="text-truncate">
+          <ng-template ngx-datatable-cell-template let-rowIndex="row.id" let-value="value" let-row="row">
+            <span
+              title="Double click to edit"
+              (dblclick)="editing[rowIndex] = true"
+              *ngIf="!editing[rowIndex]">
+              <i class="fa fa-pencil" aria-hidden="true"></i> {{ value }} 
+            </span>
+            <input
+              autofocus
+              (blur)="updateAvailability($event, price, rowIndex)"
+              *ngIf="editing[rowIndex]"
+              type="text"
+              [value]="value"
+            />
+          </ng-template>
+        </ngx-datatable-column>
+
+
+      </ngx-datatable>
+      <div class="no-data-found" *ngIf="!booking_services || !booking_services.length">
+        <div class="no-data-found-sec"><i><img alt="" src="assets/images/norecord-img.png"></i><span>No data for
+            listing</span></div>
+      </div>
+    </div>
+  </div>
+</div>

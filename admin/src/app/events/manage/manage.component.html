@@ -1,0 +1,163 @@
+<div class="modal-header">
+    <div class="title-row py-0">
+      <div class="inner-page-title">Manage Category</div>
+    </div>
+    <button
+      type="button"
+      class="pull-right btn-close-popup"
+      aria-label="Close"
+      (click)="close()"
+    >
+      <i class="ic-close"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row home-reg-form width-auto">
+        <form
+        autocomplete="off"
+        name="manageEventForm"
+        [formGroup]="manageEventForm"
+        (ngSubmit)="save(manageEventForm)"
+        novalidate
+      >
+        <div class="col-lg-6 mx-auto">
+          <div class="row mt-1">
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label for="date" class="form-label">Date</label>
+                <input
+                 id="date"
+                 type="date"
+                 class="form-control"
+                 formControlName="date"
+                 placeholder=" "
+                 autocomplete="off"
+               />
+                
+                <div
+                  class="validation-error"
+                  *ngIf="
+                    submitted &&
+                    manageEventForm.get('date').errors &&
+                    manageEventForm.get('date').errors.required
+                  "
+                >
+                  Date is required
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="vehicle" class="form-label">Vehicle</label>               
+                <ng-select
+                [items]="vehicleList"
+                bindLabel="name"
+                bindValue="name"
+                placeholder="Select vehicle"
+                formControlName="vehicle"
+                autocomplete="nope"
+                >
+              </ng-select>
+                <div
+                  class="validation-error"
+                  *ngIf="
+                    submitted &&
+                    manageEventForm.get('vehicle').errors &&
+                    manageEventForm.get('vehicle').errors.required
+                  "
+                >vehicle is required
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="zone" class="form-label">Zone</label>
+                <ng-select
+                                [items]="zoneList"
+                                bindLabel="name"
+                                bindValue="name1"
+                                placeholder="Select vehicle"
+                                
+                                formControlName="zone"
+                                autocomplete="nope"
+                              >
+                              </ng-select>
+                <!-- <input
+                  id="zone"
+                  type="text"
+                  class="form-control"
+                  formControlName="zone"
+                  placeholder=" "
+                  autocomplete="off"
+                /> -->
+                <div
+                  class="validation-error"
+                  *ngIf="
+                    submitted &&
+                    manageEventForm.get('zone').errors &&
+                    manageEventForm.get('zone').errors.required
+                  "
+                >
+                  zone is required
+                </div>
+              </div>
+               <div class="form-group">
+                <label for="vehicle" class="form-label">Timing</label>               
+                <ng-select
+                [items]="timingList"
+                bindLabel="name"
+                bindValue="name"
+                placeholder="Select timing"
+                formControlName="timing"
+                autocomplete="nope"
+                >
+              </ng-select>
+                <div
+                  class="validation-error"
+                  *ngIf="
+                    submitted &&
+                    manageEventForm.get('timing').errors &&
+                    manageEventForm.get('timing').errors.required
+                  "
+                >timing is required
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="availability" class="form-label">Availability</label>
+                <input
+                  id="availability"
+                  type="text"
+                  class="form-control"
+                  formControlName="availability"
+                  placeholder=" "
+                  autocomplete="off"
+                />
+                <div
+                  class="validation-error"
+                  *ngIf="
+                    submitted &&
+                    manageEventForm.get('availability').errors &&
+                    manageEventForm.get('availability').errors.required
+                  "
+                >
+                  Date is required
+                </div>
+              </div>
+                 <!--  <div class="form-group">
+                      <p class="card-text form-check">
+                          <label class="form-check-label">Active
+                              <input type="checkbox" formControlName="active" checked="manageEventForm.get('active').value === true">
+                              <span class="checkmark"></span>
+                          </label>
+                      </p> 
+                    </div> -->
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <button type="submit" class="btn-cmn btn-green mt-1">Save</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

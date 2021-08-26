@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Privacy Policy",
+    "description": "privacy policy",
+    "deleted": false,
+    "active": true,
+    "code": "PRIVACY_POLICY",
+    "url": "privacy-policy",
+    "metadata": {
+      "title": "privacy policy",
+      "keyword": "privacy policy",
+      "description": "privacy policy"
+    }
+  },
+  {
+    "name": "About us",
+    "description": "about us",
+    "deleted": false,
+    "active": true,
+    "code": "ABOUT_US",
+    "url": "about-us",
+    "metadata": {
+      "title": "about us",
+      "keyword": "about us",
+      "description": "about us"
+    }
+  },
+  {
+    "name": "Terms and conditions",
+    "description": "terms and conditions",
+    "deleted": false,
+    "active": true,
+    "code": "TERMS_AND_CONDITONS",
+    "url": "terms-and-conditions",
+    "metadata": {
+      "title": "terms and conditions",
+      "keyword": "terms and conditions",
+      "description": "terms and conditions"
+    }
+  }
+]

@@ -1,0 +1,58 @@
+<div class="row mb-3">
+  <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+    <div class="card box-db">
+      <div class="card-header border-0 transparent text-blue-db d-flex justify-content-between">
+        <span>Total orders</span>
+        <span><i class="fa fa-long-arrow-up mr-1"></i>16%</span>
+      </div>
+      <div class="card-body p-0">
+        <div class="w-100 h-100p">
+          <ngx-charts-line-chart [scheme]="colorScheme" [results]="orders" [autoScale]="autoScale" (select)="onSelect($event)">
+          </ngx-charts-line-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+    <div class="card box-db">
+      <div class="card-header border-0 transparent text-yellow-db d-flex justify-content-between">
+        <span>Products profit</span>
+        <span><i class="fa fa-long-arrow-up mr-1"></i>38%</span>
+      </div>
+      <div class="card-body p-0">
+        <div class="w-100 h-100p">
+          <ngx-charts-bar-vertical [scheme]="colorScheme" [results]="products" (select)="onSelect($event)">
+          </ngx-charts-bar-vertical>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+    <div class="card box-db">
+      <div class="card-header border-0 transparent text-danger-db d-flex justify-content-between">
+        <span>Customers</span>
+        <span><i class="fa fa-long-arrow-down mr-1"></i>-7%</span>
+      </div>
+      <div class="card-body p-0">
+        <div class="w-100 h-100p">
+          <ngx-charts-line-chart [scheme]="colorScheme" [results]="customers" [autoScale]="autoScale" (select)="onSelect($event)">
+          </ngx-charts-line-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+    <div class="card box-db">
+      <div class="card-header border-0 transparent text-purple-db d-flex justify-content-between">
+        <span>Refunds</span>
+        <span><i class="fa fa-long-arrow-up mr-1"></i>12%</span>
+      </div>
+      <div class="card-body p-0">
+        <div class="w-100 h-100p">
+          <ngx-charts-bar-vertical [scheme]="colorScheme" [results]="refunds" (select)="onSelect($event)">
+          </ngx-charts-bar-vertical>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

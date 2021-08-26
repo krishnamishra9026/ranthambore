@@ -1,0 +1,178 @@
+<div class="modal-header">
+    <div class="title-row py-0">
+      <div class="inner-page-title">Manage Pages</div>
+    </div>
+    <button
+      type="button"
+      class="pull-right btn-close-popup"
+      aria-label="Close"
+      (click)="close()"
+    >
+      <i class="ic-close"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row home-reg-form width-auto">
+        <form
+        autocomplete="off"
+        name="managePageForm"
+        [formGroup]="managePageForm"
+        (ngSubmit)="savepages()"
+        novalidate
+      >
+        <div class="col-lg-6 mx-auto">
+          <div class="row mt-1">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  class="form-control"
+                  formControlName="name"
+                  placeholder=" "
+                  autocomplete="off"
+                />
+                <div
+                  class="validation-error"
+                  *ngIf="
+                    submitted &&
+                    managePageForm.get('name').errors &&
+                    managePageForm.get('name').errors.required
+                  "
+                >
+                  Name is required
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="name" class="form-label">Code</label>
+                    <input
+                  type="text"
+                  class="form-control"
+                  formControlName="code"
+                  id="code"
+                  placeholder="Code"
+                  disabled="disabled"
+                />
+                <div
+                      class="validation-error"
+                      *ngIf="
+                        submitted &&
+                        managePageForm.get('code').errors &&
+                        managePageForm.get('code').errors.required
+                      ">
+                      Code is required
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <div class="row mt-1">
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <label for="name" class="form-label">Description</label>
+                  <ckeditor
+                    [formControl]="managePageForm.controls['description']"
+                    name="description"
+                    [config]="config">
+                  </ckeditor>
+                  <div
+                    class="validation-error"
+                    *ngIf="
+                      submitted &&
+                      managePageForm.get('description').errors &&
+                      managePageForm.get('description').errors.required">
+                      Description is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="name" class="form-label">Url</label>
+                    <input
+                      formControlName="url"
+                      name="url"
+                      class="form-control"
+                      placeholder="slug"
+                      type="text"
+                    />
+                    <div
+                      class="validation-error"
+                      *ngIf="
+                        submitted &&
+                        managePageForm.get('url').errors &&
+                        managePageForm.get('url').errors.required
+                      "
+                    >
+                    Url is required
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <p class="card-text form-check">
+                            <label class="form-check-label">Active
+                                <input type="checkbox" formControlName="active" checked="managePageForm.get('active').value === true">
+                                <span class="checkmark"></span>
+                            </label>
+                        </p> 
+                      </div>
+                </div>
+            </div>
+            <div formGroupName="metadata">
+              <div class="row mt-1">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label for="name" class="form-label">Keyword</label>
+                      <textarea
+                      formControlName="keyword"
+                      class="form-control textlong"
+                      rows="3"
+                      name="keyword"
+                      maxlength="140"
+                    ></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-1">
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                          <label for="title" class="form-label">Title </label>
+                              <textarea
+                                formControlName="title"
+                                class="form-control textlong"
+                                rows="3"
+                                name="title"
+                                maxlength="140"
+                              ></textarea>
+                        </div>
+                  </div>
+                </div>
+              <div class="row mt-1">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label for="name" class="form-label">Description</label>
+                      <textarea
+                      formControlName="description"
+                      class="form-control textlong"
+                      rows="3"
+                      name="keyword"
+                      maxlength="140"
+                    ></textarea>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <button type="submit" class="btn-cmn btn-green mt-1">Save</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

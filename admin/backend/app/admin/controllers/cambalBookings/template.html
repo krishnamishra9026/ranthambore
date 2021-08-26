@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<title>Booking Voucher Pdf!</title>
+<style type="text/css">
+body{
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+.date{
+  margin-top: 15px;
+}
+.person{
+  font-size: 14px;
+}
+.proof{
+  background: #ff0000;
+}
+.proof h4{
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 16px;
+}
+.address{
+  text-align: center;
+}
+.red{
+  color: #ff0000;
+}
+</style>
+</head>
+<body>
+
+  <div class="voucher">
+    <img src="https://www.girlionsafari.com/images/voucherbg.jpg" style="width: 100%">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 hidden-xs">&nbsp;</div>
+      <div class="col-sm-6">
+        <div class="pull-right">
+          <div class="date">
+            <ul class="list-unstyled">
+              <li>Date: <strong>{{ myData.date }}</strong></li>
+              <li>SI No: <strong> DTT/G/SV-100{{ myData.voucher_no }}</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="person">
+      <ul class="list-unstyled">
+        <li><strong>Dear, {{#each myData}} {{ this.name }} {{/each}}</strong></li>
+        <li><strong>Mobile No: {{#each myData}} {{ this.mobile }} {{/each}}</strong></li>
+      </ul>
+    </div>
+    <div class="notice">
+      <p>We are pleased to confirm <strong>Cambal Safari</strong> inside Ranthambore Tiger Reserve Area. Please check the <strong>Cambal Safari</strong> details as mentioned below:</p>
+    </div>
+    <br>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <th class="text-center" style="background: #eee">Safari Date</th>
+          <th class="text-center" style="background: #eee">Safari Timing</th>
+          <th class="text-center" style="background: #eee">No. of Travellers</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center">{{#each myData}} {{ this.date }} {{/each}}</td>
+            <td class="text-center">{{#each myData}} {{ this.time }} {{/each}}</td>
+            <td class="text-center">{{myData.count}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="contactperson">
+      <ul class="list-unstyled">
+        <li><strong>Safari Contact Person:</strong> Mr. Sushil</li>
+        <li><strong>Mobile No:</strong> 7742361777</li>
+        <li style="font-size: 13px;font-style: italic;">Please contact Mr. Sushil after reaching Ranthambore</li>
+      </ul>
+      <br>
+      <div class="row" style="width: 100%">
+        <div class="col-sm-8" style="width: 70%;float: left;">
+          <h4 class="red"><strong style="color: #ff0000">Terms & Conditions for the Safari in Ranthambore National Park</strong></h4>
+          <ul class="list-unstyled">
+            <li>1. No refund or cancellation is acceptable after the confirmed booking.</li>
+            <li>2. The entry permits are non-transferable and non-exchangeable</li>
+            <li>3. The fees regarding the safari may be revised without any notice and visitors have to pay the difference to the officials at the entrance gate at the time of entry into the park.</li>
+            <li>4. The Government of Rajasthan reserves the Right to Admission.</li>
+            <li>5. The opening and closing time may be changed or the park or any particular zone may be closed without any prior notice in case of any emergency.</li>
+            <li>6. Visitors are required to submit the photocopy of the Identity proof at the entrance before the entry into the park.</li>
+            <li>7. The original ID proof will be checked at the time of entry.</li>
+            <li>Terms and Conditions are subject to change, may append or amend without prior notice or information due to various Govt. Policies.</li>  
+          </ul>
+        </div>
+        <div class="col-sm-4" style="width: 30%;float: left;">
+          <img src="https://www.girlionsafari.com/images/sign.jpg" style="margin: 0 auto;display: block;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="proof">
+    <div class="contact">
+      <h4 style="color: #fff;text-align: center;padding: 8px 0;font-size: 16px;background: #ff0000"><strong>Note:</strong> During Safari, Please carry your Original ID Proof.</h4>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row" style="width: 100%">
+      <div class="col-sm-4" style="width: 50%;float: left;">
+        <img style="max-width: 140px;" src="https://www.dailytourandtravel.com/images/daily-logo.png" class="img-responsive" alt="Daily Tour and Travel">
+      </div>
+      <div class="col-sm-2 hidden-xs"></div>
+      <div class="col-sm-6" style="width: 50%;float: left;">
+        <ul class="list-unstyled address">
+          <li>www.ranthamboretigerreserve.in</li>
+          <li>A-2, Ganesh Nagar, Pandav Nagar Complex, Delhi - 110092, INDIA</li>
+          <li>Contact No: +91 7838 4986 45, Email: ranthambore360@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

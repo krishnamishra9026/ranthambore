@@ -1,0 +1,199 @@
+<div class="modal-header">
+    <div class="title-row py-0">
+      <div class="inner-page-title">Manage Email Template</div>
+    </div>
+    <button
+      type="button"
+      class="pull-right btn-close-popup"
+      aria-label="Close"
+      (click)="close()"
+    >
+      <i class="ic-close"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+      <div class="row home-reg-form width-auto">
+          <form [formGroup]="emailForm" class="text-left mt-4" (ngSubmit)="saveEmail()">
+              <div class="col-lg-6 mx-auto">
+                  <div class="row mt-1">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="name" class="form-label">Email Title</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="title"
+                          placeholder=" "
+                          autocomplete="off"
+                        />
+                        <div
+                          class="validation-error"
+                          *ngIf="
+                            submitted &&
+                            emailForm.get('title').errors &&
+                            emailForm.get('title').errors.required
+                          "
+                        >
+                        Title is required
+                        </div>
+                      </div>
+                    </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-label">Email Subject</label>
+                            <input
+                              formControlName="subject"
+                              name="subject"
+                              class="form-control"
+                              required
+                              placeholder="Subject"
+                              type="text"
+                            />
+                            <div
+                          class="validation-error"
+                          *ngIf="
+                            submitted &&
+                            emailForm.get('subject').errors &&
+                            emailForm.get('subject').errors.required
+                          "
+                        >
+                        Subject is required
+                        </div>
+                          </div>
+
+                      </div>
+                  </div>
+                  <div class="row mt-1">
+                      <div class="col-lg-6">
+                      <div class="form-group ">
+                          <label for="input-4 " class="form-label">From Name</label>
+                          <input
+                            formControlName="fromName"
+                            name="fromName"
+                            class="form-control"
+                            placeholder="From Name"
+                            type="text "
+                            [maxlength]="25"
+                            required
+                          />
+                          <div
+                          class="validation-error"
+                          *ngIf="
+                            submitted &&
+                            emailForm.get('fromName').errors &&
+                            emailForm.get('fromName').errors.required
+                          "
+                        >
+                        From Name is required
+                        </div>
+                        </div>
+                      </div>
+                        <div class="col-lg-6">
+                              <div class="form-group">
+                                  <label class="form-label">From Email</label>
+                                  <input
+                                    formControlName="fromEmail"
+                                    name="fromEmail"
+                                    class="form-control"
+                                    placeholder="From Email"
+                                    type="text"
+                                    required
+                                  />
+                                  <div
+                          class="validation-error"
+                          *ngIf="
+                            submitted &&
+                            emailForm.get('fromEmail').errors &&
+                            emailForm.get('fromEmail').errors.required
+                          "
+                        >
+                        From Email is required
+                        </div>
+                        <div
+                            class="validation-error"
+                            *ngIf="submitted
+                            &&  emailForm.get('fromEmail').errors
+                            && emailForm.get('fromEmail').errors.email"
+                          >
+                            Invlid Email Address.
+                          </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label">Add Cc</label>
+                                <input
+                                  formControlName="cc"
+                                  name="cc"
+                                  class="form-control"
+                                  placeholder="Add Cc"
+                                  type="text"
+                                />
+                              </div>
+                        </div>
+                          <div class="col-lg-6">
+                              <div class="form-group">
+                                  <label class="form-label">Add Bcc</label>
+                                  <input
+                                    formControlName="bcc"
+                                    name="bcc"
+                                    class="form-control"
+                                    placeholder="Add Bcc"
+                                    type="text"
+                                  />
+                                </div>
+                          </div>
+                      </div>
+                      <div class="row mt-1">
+                          <div class="col-lg-12 col-md-12 mb-12">
+                              <div class="table-wrapper-2">
+                                <table class="table table-bordered">
+                                  <thead>
+                                    <tr>
+                                      <th>Variables Name</th>
+                                      <th>Variables Description</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr *ngFor="let variable of variables">
+                                      <td>{{ variable.name }}</td>
+                                      <td>{{ variable.description }}</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <div class="p-1 text-left">
+                                  <div class="form-group">
+                                <ckeditor
+                                [formControl]="emailForm.controls['message']"
+                                  name="message"
+                                  [config]="config"
+                                  required
+                                ></ckeditor>
+                                <div
+                                class="validation-error"
+                                *ngIf="
+                                  submitted &&
+                                  emailForm.get('message').errors &&
+                                  emailForm.get('message').errors.required
+                                "
+                              >
+                              Message is required
+                              </div>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                              <button type="submit" class="btn-cmn btn-green mt-1">Save</button>
+                            </div>
+                          </div>
+              </div>
+            </form>
+      </div>
+  </div>
+  

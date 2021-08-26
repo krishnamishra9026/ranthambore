@@ -1,0 +1,78 @@
+@import '../../../assets/theme/variables';
+
+.btn-small-grey {
+	margin-top: 15px;
+	cursor: auto;
+}
+
+.form-group {
+	textarea {
+		&.textlong {
+			height: 160px;
+		}
+	}
+}
+
+.btn-green {
+	display: block;
+	margin: auto;
+}
+
+/* no record found css */
+.no-data-found {
+	width: 100%;
+	display: table;
+	height: 400px;
+	vertical-align: middle;
+	.no-data-found-sec {
+		width: 100%;
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+		span {
+			display: block;
+			font-size: 18px;
+			margin-top: 15px;
+		}
+	}
+}
+/* no record found css end */
+
+.datatable-row-group {
+	datatable-body-cell:last-child {
+		position: absolute;
+		right: 0;
+		z-index: 9;
+		width: 92px;
+	}
+}
+.filter-row {
+	padding: 0px 15px 25px;
+}
+
+.user-pic {
+	width: 28px;
+	height: 28px;
+	display: inline-block;
+	float: left;
+	margin-right: 10px;
+	vertical-align: middle;
+	@include border-radius(50%);
+	overflow: hidden;
+	border: 1px solid $light-clr;
+
+	.user-pic-inner {
+		width: 27px;
+		height: 27px;
+		display: table-cell;
+		vertical-align: middle;
+		background: $light-grn;
+
+		img {
+			max-width: 100%;
+			height: auto;
+			display: block;
+			margin: auto;
+		}
+	}
+}
