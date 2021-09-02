@@ -68,7 +68,6 @@ class ExpressApp {
 
 		if (process.env.NODE_ENV === 'production') {
 			app.use('/admin', _express2.default.static('./public'));
-			console.log(_path2.default.resolve(__dirname, '../../../uploads'));
 			app.use('/admin/uploads/', _express2.default.static(_path2.default.resolve(__dirname, '../../../uploads')));
 		}
     

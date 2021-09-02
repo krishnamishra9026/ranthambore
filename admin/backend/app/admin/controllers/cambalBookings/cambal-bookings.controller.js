@@ -89,7 +89,7 @@ class CambalBookingsController extends BaseController {
 			var voucherno = 1;
 		}
 
-		const get_total_num_docs = await  db.collection('cambalBooking').find({'_id' : ooid }).count();
+		// const get_total_num_docs = await  db.collection('cambalBooking').find({'_id' : ooid }).count();
 
 		const order_docs = await db.collection('cambalBooking').findOne({'_id' : ooid });
 
@@ -123,6 +123,7 @@ class CambalBookingsController extends BaseController {
 				myData: new_order_doc
 			},
 			path: __dirname.split('backend/')[0]+'uploads/vocher_files/cambal_voucher_'+req.body.customer_id+'.pdf'
+			// path : 'uploads/vocher_files/cambal_voucher_'+req.body.customer_id+'.pdf'
 		};
 
 		var res_re = pdf.create(document, options)
@@ -147,14 +148,17 @@ class CambalBookingsController extends BaseController {
 		const fs = require('fs')
 	
 		const path = __dirname.split('backend/')[0]+'uploads/vocher_files/cambal_voucher_'+req.body.customer_id+'.pdf'
+		// const path = 'uploads/vocher_files/cambal_voucher_'+req.body.customer_id+'.pdf'
 		
 		const nodemailer = require("nodemailer");
 	
 		let transport = nodemailer.createTransport({
 			service: 'gmail',
 			auth: {
+				/*user: 'contact@n2rtechnologies.com',
+				pass: '7dqD46?EjX'*/
 				user: 'n2rtech785612@gmail.com',
-				pass: 'Temp@785612'
+				pass: 'Temp#9921'
 			}
 		});
 		
@@ -166,20 +170,22 @@ class CambalBookingsController extends BaseController {
 		var ooid = new mongo.ObjectID(req.body.customer_id);
 		
 		
-		const order_docs = await db.collection('Customer').findOne({'_id' : ooid });
+		const order_docs = await db.collection('cambalBooking').findOne({'_id' : ooid });
 
 		var customer_name = order_docs.name;
 
 		const message = {
 			from: 'ranthambore360@gmail.com',
 			to: order_docs.email,
-			subject: 'Ranthambore Jungle Safari ( Ranthambore National Park ) Booking Voucher',
-			html: '<p>Dear, '+ order_docs.name +'<br></br>Kindly Check Your Safari Voucher in attachment.<br></br>Also Contact Your Safari Contact Person before one day for confirming reporting point.<br></br><br></br>Regards, Ranthambore Jungle Safari ( Ranthambore National Park ) Team.</p>',
+			// to: 'er.krishna.mishra@gmail.com',
+			subject: 'Ranthambore Cambal Safari ( Ranthambore National Park ) Booking Voucher',
+			html: '<p>Dear, '+ order_docs.name +'<br></br>Kindly Check Your Cambal Safari Voucher in attachment.<br></br>Also Contact Your Safari Contact Person before one day for confirming reporting point.<br></br><br></br>Regards, Ranthambore Jungle Safari ( Ranthambore National Park ) Team.</p>',
 			attachments: [{
 				filename: 'voucher.pdf',
 				path: path
 			}]
 		};
+
 		transport.sendMail(message, function(err, info) {
 			//console.log(info);
 			/*if(info.response){

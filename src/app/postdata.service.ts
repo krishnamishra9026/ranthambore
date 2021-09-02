@@ -24,7 +24,7 @@ private contactsUrl = '/api/contacts';
 
 
     createChambalDetails(newCustomerDetail: CustomerDetail): Promise<void | CustomerDetail> {
-    return this.http.post('http://127.0.0.1:3000/saveChambalBookings', newCustomerDetail)
+    return this.http.post('/saveChambalBookings', newCustomerDetail)
                .toPromise()
                .then(response => response.json() as CustomerDetail)
                .catch(this.handleError);
@@ -44,7 +44,7 @@ private contactsUrl = '/api/contacts';
   }
 
   getCambalBookingPrices(objdata){
-    return this.http.get('http://127.0.0.1:3000/getCambalBookingPrices', objdata);
+    return this.http.get('/getCambalBookingPrices', objdata);
   }
   
 

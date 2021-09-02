@@ -3,11 +3,12 @@
       <!-- <div class="inner-page-title">Booking Details</div> -->
       <div class="alert alert-info"><b>Booking Details</b></div>
 
-      <div [hidden]="pdf_file_link" style="display:none;">
+      <div [hidden]="pdf_file_link" style="display:block;">
       <form [formGroup]="zoneEditForm" (ngSubmit) = "mdfLogin(zoneEditForm.value)" >
           <div>
-              <input type="text" class="textbox" name="zone" placeholder="Enter Zone to Generate Voucher Pdf" formControlName="zone">
-              <input type="submit" class="btn btn-info" value="Generate Pdf" [disabled] = "!zoneEditForm.valid">
+              <!-- <input type="text" class="textbox" name="zone" placeholder="Enter Zone to Generate Voucher Pdf" formControlName="zone"> -->
+              <!-- <input type="submit" class="btn btn-info" value="Generate Pdf" [disabled] = "!zoneEditForm.valid"> -->
+              <input type="submit" class="btn btn-info" value="Generate Pdf" >
           </div>
       </form>
       </div>

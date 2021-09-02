@@ -262,7 +262,7 @@ app.post("/sendEnquiryMail", (req, res, next) => {
     service: 'gmail',
     auth: {
       user: 'n2rtech785612@gmail.com',
-      pass: 'Temp#785612'
+      pass: 'Temp#9921'
     }
   }); 
 
@@ -295,7 +295,7 @@ app.post("/sendEnquiryDetailMail", (req, res, next) => {
     service: 'gmail',
     auth: {
       user: 'n2rtech785612@gmail.com',
-      pass: 'Temp#785612'
+      pass: 'Temp#9921'
     }
   }); 
 

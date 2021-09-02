@@ -14,7 +14,7 @@ import roleRouter from './controllers/roles';
 import DashboardRoute from './controllers/dashboard';
 import CategoriesRoute from './controllers/categories';
 import CustomersRoute from './controllers/customers';
-import CambalBookingsRoute from './controllers/CambalBookings';
+import CambalBookingsRoute from './controllers/cambalBookings';
 import EventsRoute from './controllers/events';
 import BookingPricesRoute from './controllers/bookingPrices';
 import ChambalPricesRoute from './controllers/chambalPrices';

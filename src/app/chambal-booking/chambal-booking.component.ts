@@ -18,6 +18,11 @@ import {  FormBuilder,  FormGroup,  Validators,  FormArray,  FormControl } from 
 export class ChambalBookingComponent implements OnInit {
 
 
+  counter(i: number) {
+    return new Array(i);
+}
+
+
 title = 'Ranthambore Tiger Reserve';
    postsArray: any = [];
 
@@ -85,8 +90,6 @@ title = 'Ranthambore Tiger Reserve';
     var dddd = this.contactService.getCambalBookingPrices({'name' : 'Indian Gypsy Price'}).subscribe((res: any) => {
       JSON.parse(res._body).booking_prices.forEach((eee: any) => {
 
-        console.log(eee['price']);
-
         if(eee['name'] == 'Safari Per Person Price Indian'){
           this.price1= eee['price'];
           sessionStorage.setItem("safari_per_person_price_indian", eee['price']);
@@ -135,14 +138,14 @@ title = 'Ranthambore Tiger Reserve';
     this.CustomerDetailsForm = this.fb.group({
       id: this.id,
       name: [],
-      mobile: [],
+      mobile: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       email: [],
       id_proof_no: [],
-      no_of_persons_indian: [],
-      no_of_persons_foreigner: [],
+      no_of_persons_indian:  new FormControl(''),
+      no_of_persons_foreigner: new FormControl(''),
       address: [],
       safari_date: [],
-      safari_time: [],
+      safari_time: new FormControl(''),
       // date: this.date_val,
       amount: [],
       // vehicle: this.vehicle_val,
@@ -217,7 +220,7 @@ title = 'Ranthambore Tiger Reserve';
 
     propay.on('payment.error', function(resp: any) {
       obj.CustomerDetailsForm.value.transaction_id = '';
-      obj.contactService.createChambalDetails(obj.CustomerDetailsForm.value);
+      // obj.contactService.createChambalDetails(obj.CustomerDetailsForm.value);
       alert(resp.error.description);
       this.refresh();
       return false;
@@ -232,16 +235,33 @@ title = 'Ranthambore Tiger Reserve';
     this.ngZone.run(() => this.router.navigateByUrl('/thank-you'));
   }
 
+    getToday(): string {
+   return new Date().toISOString().split('T')[0]
+}
+
   onChanges(): void {
 
     var total_persons = 0;
     this.CustomerDetailsForm.valueChanges.subscribe(val => {
 
+
       var indian_persons = val.no_of_persons_indian;
 
       var foreigner_persons = val.no_of_persons_foreigner;
 
-      total_persons = (val.no_of_persons_indian)+(val.no_of_persons_foreigner);
+      if(foreigner_persons == ''){
+        total_persons = (parseInt(indian_persons))+((foreigner_persons));
+      }else if(indian_persons == ''){
+        total_persons = ((indian_persons))+(parseInt(foreigner_persons));
+      }else if(indian_persons == '' &&  foreigner_persons == ''){
+        total_persons = 0;
+      }else{
+        total_persons = (parseInt(indian_persons))+(parseInt(foreigner_persons));
+      }
+
+      if(total_persons == 0){
+        text = 0;
+      }
 
       var safari_per_person_price_indian = parseInt(sessionStorage.getItem('safari_per_person_price_indian'));
       var safari_per_person_price_foreigner = parseInt(sessionStorage.getItem('safari_per_person_price_foreigner'));
@@ -272,7 +292,7 @@ title = 'Ranthambore Tiger Reserve';
       var gst = (amount_booking*5)/100;
       this.nCnt = amount_booking+gst;
       this.no_persons = total_persons;
-      this.no_persons_price = amount_booking+gst;
+      this.no_persons_price = amount_booking;
       this.pickup_drop = amount_booking;
       this.gst = gst;
 

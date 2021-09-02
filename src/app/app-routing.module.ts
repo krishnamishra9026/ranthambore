@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { BookingComponent } from './booking/booking.component';
 import { ChambalBookingComponent } from './chambal-booking/chambal-booking.component';
+import { SafariComponent } from './safari/safari.component';
 import { CambalSafariBookingComponent } from './cambal-safari-booking/cambal-safari-booking.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
    { path: 'booking', component: BookingComponent },
    { path: 'chambal-booking/:id', component: ChambalBookingComponent },
    { path: 'cambal-safari', component: CambalSafariBookingComponent },
+   { path: 'safari', component: SafariComponent },
    { path: 'about-us', component: AboutusComponent },
    { path: 'contact-us', component: ContactusComponent },
    { path: 'terms-and-condition', component: TermsAndConditionComponent },

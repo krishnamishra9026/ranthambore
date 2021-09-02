@@ -4,8 +4,7 @@
 
 export const environment = {
 	production: true,
-	// serviceUrl: 'https://ranthamboretigerreserve.in/admin',
-    serviceUrl: 'http://localhost:5000/admin',
+	serviceUrl: 'https://ranthamboretigerreserve.in/admin',
 	demo: false
 };
 

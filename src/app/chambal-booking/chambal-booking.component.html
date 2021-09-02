@@ -48,9 +48,10 @@
                   <label class="control-label">Mobile No.:<br><br></label>
                 </div>
                 <div class="col-sm-8">
-                  <input placeholder="Mobile No." formControlName="mobile" tabindex="2" ng-minlength="9" required="required" type="number" id="mobile" class="form-control">
+                  <input [min]="9" [max]="12" placeholder="Mobile No." formControlName="mobile" tabindex="2" ng-minlength="9" required="required" type="number" id="mobile" class="form-control">
                   <div *ngIf="submitted && f.mobile.errors" class="alert alert-danger">
                     <div *ngIf="f.mobile.errors.required" class="text-danger">Mobile is required</div>
+                    <div *ngIf="f.mobile.errors.pattern">Please, Enter 10 digit Mobile Number.</div>
                   </div>
                 </div>
               </div>
@@ -90,7 +91,11 @@
                   <label class="control-label">NO. of Persons Indian:</label>
                 </div>
                 <div class="col-sm-8">
-                  <input placeholder="NO. of Persons Indian"  value="1" formControlName="no_of_persons_indian" tabindex="2"  min="0" max="50" ng-minlength="9" required="required" type="number" id="no_of_persons_indian" class="form-control">
+                  <select style="min-width:100%" formControlName="no_of_persons_indian" required="required" id="no_of_persons_indian" class="form-control">
+                    <option value="">Please Select</option>
+                    <option *ngFor='let in of counter(50) ;let i = index' value="{{i+1}}">{{i+1}}</option>
+                  </select>
+                  <!-- <input placeholder="NO. of Persons Indian"  value="1" formControlName="no_of_persons_indian" tabindex="2"  min="0" max="50" ng-minlength="9" required="required" type="number" id="no_of_persons_indian" class="form-control"> -->
                   <div *ngIf="submitted && f.no_of_persons_indian.errors" class="alert alert-danger">
                     <div *ngIf="f.no_of_persons_indian.errors.required" class="text-danger">Persons indian is required</div>
                   </div>
@@ -105,7 +110,12 @@
                   <label class="control-label">NO. of Persons Foreigner:</label>
                 </div>
                 <div class="col-sm-8">
-                  <input  min="0" max="50"  value="1" placeholder="NO. of Persons Foreigner" formControlName="no_of_persons_foreigner" tabindex="2" ng-minlength="9" required="required" type="number" id="no_of_persons_foreigner" class="form-control">
+                  <select style="min-width:100%" formControlName="no_of_persons_foreigner" tabindex="2" required="required" id="no_of_persons_foreigner" class="form-control">
+                    <option value="" selected>Please Select</option>
+                    <option *ngFor='let in of counter(51) ;let i = index' value="{{i}}">{{i}}</option>
+                  </select>
+
+                  <!-- <input  min="0" max="50"  value="1" placeholder="NO. of Persons Foreigner" formControlName="no_of_persons_foreigner" tabindex="2" ng-minlength="9" required="required" type="number" id="no_of_persons_foreigner" class="form-control"> -->
                   <div *ngIf="submitted && f.no_of_persons_foreigner.errors" class="alert alert-danger">
                     <div *ngIf="f.no_of_persons_foreigner.errors.required" class="text-danger">Persons foreigner is required</div>
                   </div>
@@ -119,7 +129,7 @@
                   <label class="control-label">Select Safari Date:</label>
                 </div>
                 <div class="col-sm-8">
-                  <input placeholder="Date" type="date" formControlName="safari_date" tabindex="2" required="required" id="safari_date" class="form-control">
+                  <input placeholder="Date" type="date" [min]="getToday()" formControlName="safari_date" tabindex="2" required="required" id="safari_date" class="form-control">
                   <div *ngIf="submitted && f.safari_date.errors" class="alert alert-danger">
                     <div *ngIf="f.safari_date.errors.required" class="text-danger">Date is required</div>
                   </div>
@@ -133,8 +143,8 @@
                   <label class="control-label">Select Safari Time:</label>
                 </div>
                 <div class="col-sm-8">
-                  <select placeholder="Safari Time" formControlName="safari_time" style="min-width: 100%;" tabindex="2" id="safari_time" class="form-control"  required="required">
-                    <option value="">Please select Time</option>
+                  <select placeholder="Safari Time" formControlName="safari_time" style="min-width: 100%;" id="safari_time" class="form-control"  required="required">
+                    <option value="">Please select </option>
                     <option value="8:00 am to 9:00 am">8:00 am to 9:00 am</option>
                     <option value="9:00 am to 10:00 am">9:00 am to 10:00 am</option>
                     <option value="10:00 am to 11:00 am">10:00 am to 11:00 am</option>
@@ -194,7 +204,7 @@
           <br>
           <p><b> {{ no_persons }} Persons : </b> {{ no_persons_price }} INR</p>
           <!-- <p><b> Pickup and Drop : </b> {{ pickup_drop }} INR</p> -->
-          <p><b> GST : </b> {{ gst }} INR</p>
+          <p><b> GST(5%) : </b> {{ gst }} INR</p>
         </div>
         </div>
         <div class="formsection">
@@ -206,6 +216,7 @@
             </ul>
           </div>
         </div>
+        <div><p style="text-align: center;">Note: Final Payment Includes extra 3% of payable amount as Convenience Fee.</p></div>
         
       </form>
 

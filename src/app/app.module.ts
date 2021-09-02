@@ -21,6 +21,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { CancellationPolicyComponent } from './cancellation-policy/cancellation-policy.component';
 import { ChambalBookingComponent } from './chambal-booking/chambal-booking.component';
 import { CambalSafariBookingComponent } from './cambal-safari-booking/cambal-safari-booking.component';
+import { SafariComponent } from './safari/safari.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CambalSafariBookingComponent } from './cambal-safari-booking/cambal-saf
     PrivacyPolicyComponent,
     CancellationPolicyComponent,
     ChambalBookingComponent,
-    CambalSafariBookingComponent
+    CambalSafariBookingComponent,
+    SafariComponent
   ],
   imports: [
     BrowserModule,
